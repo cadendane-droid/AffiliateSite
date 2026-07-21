@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "$doc": "Owned by 04-seo (05-meta reads; nobody else writes). Every live experiment is pre-registered here BEFORE its change ships. Experiment shape: { id: 'exp-YYYY-MM-DD-NN', type: 'title-meta'|'cta'|'table-columns'|'internal-links'|'content-refresh', targetPath: '/gear/...', hypothesis: string, metric: string (a PostHog-measurable definition, e.g. 'affiliate_click / article_view on targetPath'), minSampleSize: number (article_view count before evaluation allowed), baseline: { value: number, windowDays: number }, startDate: 'YYYY-MM-DD', expectedReviewDate: 'YYYY-MM-DD', status: 'active'|'promoted'|'rolled-back'|'inconclusive', changes: [{ file, description }], result: null | { value: number, decidedDate: 'YYYY-MM-DD', note: string } }",
+  "maxNewExperimentsPerRun": 2,
+  "active": [],
+  "completed": []
+}

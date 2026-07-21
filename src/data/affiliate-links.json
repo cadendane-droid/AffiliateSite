@@ -1,0 +1,74 @@
+{
+  "$comment": "Central affiliate link registry. Every monetized outbound link on the site resolves through this file via <AffiliateLink>. `url` is the monetized affiliate deep link; while a program application is pending, set it to PENDING_AFFILIATE_ID and fill `fallbackUrl` with the plain product page — the component will use the fallback (still rel=sponsored) until the real link lands. Agents may append entries but must never delete one that a published article references.",
+  "programs": {
+    "avantlink": { "name": "AvantLink", "network": "AvantLink", "status": "PENDING_SIGNUP", "signupUrl": "https://www.avantlink.com/affiliates/" },
+    "rei": { "name": "REI Co-op Affiliate Program", "network": "AvantLink", "status": "PENDING_SIGNUP", "signupUrl": "https://www.rei.com/help/affiliate-program.html" },
+    "amazon": { "name": "Amazon Associates", "network": "Amazon", "status": "PENDING_SIGNUP", "signupUrl": "https://affiliate-program.amazon.com/" },
+    "garage-grown-gear": { "name": "Garage Grown Gear", "network": "ShareASale", "status": "PENDING_SIGNUP", "signupUrl": "https://www.shareasale.com/" }
+  },
+  "links": {
+    "durston-x-mid-2": {
+      "name": "Durston X-Mid 2",
+      "brand": "Durston Gear",
+      "program": "garage-grown-gear",
+      "url": "PENDING_AFFILIATE_ID",
+      "fallbackUrl": "https://durstongear.com/products/x-mid-2-tent"
+    },
+    "zpacks-duplex": {
+      "name": "Zpacks Duplex",
+      "brand": "Zpacks",
+      "program": "avantlink",
+      "url": "PENDING_AFFILIATE_ID",
+      "fallbackUrl": "https://zpacks.com/products/duplex"
+    },
+    "lanshan-2": {
+      "name": "3F UL Gear Lanshan 2",
+      "brand": "3F UL Gear",
+      "program": "amazon",
+      "url": "PENDING_AFFILIATE_ID",
+      "fallbackUrl": "https://3fulgear.com/product/lanshan-2/"
+    },
+    "sawyer-squeeze": {
+      "name": "Sawyer Squeeze",
+      "brand": "Sawyer",
+      "program": "amazon",
+      "url": "PENDING_AFFILIATE_ID",
+      "fallbackUrl": "https://sawyer.com/products/squeeze-water-filtration-system"
+    },
+    "katadyn-befree-1l": {
+      "name": "Katadyn BeFree 1.0L",
+      "brand": "Katadyn",
+      "program": "rei",
+      "url": "PENDING_AFFILIATE_ID",
+      "fallbackUrl": "https://www.katadyn.com/us/us/products/water-filters/befree"
+    },
+    "platypus-quickdraw": {
+      "name": "Platypus QuickDraw",
+      "brand": "Platypus",
+      "program": "rei",
+      "url": "PENDING_AFFILIATE_ID",
+      "fallbackUrl": "https://www.platy.com/filtration/quickdraw-filter/"
+    },
+    "soto-windmaster": {
+      "name": "Soto WindMaster",
+      "brand": "Soto",
+      "program": "rei",
+      "url": "PENDING_AFFILIATE_ID",
+      "fallbackUrl": "https://sotooutdoors.com/products/windmaster/"
+    },
+    "brs-3000t": {
+      "name": "BRS-3000T",
+      "brand": "BRS",
+      "program": "amazon",
+      "url": "PENDING_AFFILIATE_ID",
+      "fallbackUrl": "https://www.brs-gear.com/"
+    },
+    "snow-peak-litemax": {
+      "name": "Snow Peak LiteMax",
+      "brand": "Snow Peak",
+      "program": "rei",
+      "url": "PENDING_AFFILIATE_ID",
+      "fallbackUrl": "https://www.snowpeak.com/products/litemax-stove-gst-120r"
+    }
+  }
+}

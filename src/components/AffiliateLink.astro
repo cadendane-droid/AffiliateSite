@@ -1,0 +1,36 @@
+---
+/**
+ * The ONLY way monetized links leave this site.
+ * - URL always resolves through src/data/affiliate-links.json (never inline hrefs)
+ * - rel="sponsored nofollow noopener" is hard-coded, not a prop
+ * - fires PostHog `affiliate_click` via data attributes read by the layout's
+ *   delegated listener (keeps this component zero-JS)
+ */
+import { resolveAffiliate } from '@lib/affiliates';
+
+interface Props {
+  linkKey: string;
+  /** where on the page this CTA sits, e.g. "verdict-box", "product-section-2", "comparison-table" */
+  position: string;
+  ctaVariant?: string;
+  class?: string;
+}
+
+const { linkKey, position, ctaVariant = 'default', class: className = '' } = Astro.props;
+const { entry, href } = resolveAffiliate(linkKey);
+---
+
+<a
+  href={href}
+  rel="sponsored nofollow noopener"
+  target="_blank"
+  data-affiliate-link
+  data-product-name={entry.name}
+  data-brand={entry.brand}
+  data-position={position}
+  data-cta-variant={ctaVariant}
+  class={className ||
+    'inline-block rounded-sm bg-rust px-4 py-2 text-sm font-bold text-white shadow-sm hover:bg-rust-dark focus:outline-2 focus:outline-offset-2 focus:outline-rust'}
+>
+  <slot>Check price at {entry.brand}</slot>
+</a>

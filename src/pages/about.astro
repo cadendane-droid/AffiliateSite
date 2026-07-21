@@ -1,0 +1,53 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
+import { url } from '@lib/url';
+import { SITE_NAME } from '@data/site';
+---
+
+<BaseLayout title="About" description="What Ounce Ledger is, who it's for, and the editorial rules that keep a gear site honest: verified weights, sourced claims, and no pretend field testing.">
+  <div class="mx-auto max-w-3xl px-4 py-8">
+    <Breadcrumbs crumbs={[{ label: 'Home', href: '/' }, { label: 'About' }]} />
+    <h1 class="mt-4 text-3xl font-bold tracking-tight">About {SITE_NAME}</h1>
+
+    <div class="prose mt-6">
+      <p>
+        {SITE_NAME} exists because most backpacking gear content online is either a lifestyle magazine
+        or an affiliate spreadsheet wearing a hiking hat. Both have the same problem: the numbers can't
+        be trusted. Claimed weights get copied from press releases, "reviews" get written from product
+        photos, and every third product is somehow essential.
+      </p>
+      <p>
+        We keep a ledger instead. Every product gets its weight verified against the manufacturer's own
+        spec sheet and recorded in ounces and grams. Every claim about durability or performance traces
+        to verified owner reports or published third-party testing. Every unknown is printed as
+        "not published" instead of a guess. The full method is on
+        <a href={url('/how-we-review/')}>How We Review</a> — including what we deliberately don't do.
+      </p>
+
+      <h2>Who this is for</h2>
+      <p>
+        Thru-hikers and multi-day backpackers, beginner to intermediate. If you're planning a first
+        weekend loop or your first long section hike and trying to spend money once, correctly — you're
+        the reader. Everything is evaluated for gear you carry on your back, on foot, into the
+        backcountry. We don't cover car camping, overlanding, or RV gear, ever.
+      </p>
+
+      <h2>How the site operates</h2>
+      <p>
+        {SITE_NAME} runs on a structured editorial pipeline that uses automation heavily: research
+        aggregation, spec verification, and publishing checks are systematized, and every integrity rule
+        is enforced by code that runs before anything goes live. Humans own the site, the methodology,
+        and the responsibility for what it says. If we get a number wrong,
+        <a href={url('/contact/')}>tell us</a> and we'll fix it and log the correction.
+      </p>
+
+      <h2>How the site makes money</h2>
+      <p>
+        Affiliate commissions, disclosed on every page that contains them and explained in full on the
+        <a href={url('/affiliate-disclosure/')}>affiliate disclosure page</a>. No sponsored posts, no
+        paid placements, no free gear in exchange for coverage.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

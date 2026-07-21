@@ -1,0 +1,18 @@
+# build output
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# environment
+.env
+.env.production
+.env.local
+
+# os / editor
+.DS_Store
+.idea/
+.vscode/
+*.log
+!agents/state/agent-runs.log

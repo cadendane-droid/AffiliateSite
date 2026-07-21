@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "$doc": "Canonical index of everything published. 03-publisher appends on every successful publish; 01-research reads it to avoid repeating clusters/keywords; 04-seo reads it to pick refresh targets. Shape: clusters = kebab-case product-cluster ids ever covered; articles[] = one entry per published article.",
+  "clusters": [
+    "2p-trekking-pole-tents",
+    "squeeze-water-filters",
+    "upright-canister-stoves"
+  ],
+  "articles": [
+    {
+      "slug": "best-ultralight-trekking-pole-tents",
+      "path": "/gear/shelters/best-ultralight-trekking-pole-tents/",
+      "contentType": "roundup",
+      "category": "shelters",
+      "primaryKeyword": "trekking pole tent",
+      "cluster": "2p-trekking-pole-tents",
+      "products": ["durston-x-mid-2", "zpacks-duplex", "lanshan-2"],
+      "publishDate": "2026-07-21",
+      "agentRunId": "seed-2026-07-21"
+    },
+    {
+      "slug": "best-backpacking-water-filters",
+      "path": "/gear/water/best-backpacking-water-filters/",
+      "contentType": "roundup",
+      "category": "water",
+      "primaryKeyword": "best backpacking water filter",
+      "cluster": "squeeze-water-filters",
+      "products": ["platypus-quickdraw", "sawyer-squeeze", "katadyn-befree-1l"],
+      "publishDate": "2026-07-21",
+      "agentRunId": "seed-2026-07-21"
+    },
+    {
+      "slug": "best-canister-stoves-backpacking",
+      "path": "/gear/cooking/best-canister-stoves-backpacking/",
+      "contentType": "roundup",
+      "category": "cooking",
+      "primaryKeyword": "best canister stove",
+      "cluster": "upright-canister-stoves",
+      "products": ["soto-windmaster", "snow-peak-litemax", "brs-3000t"],
+      "publishDate": "2026-07-21",
+      "agentRunId": "seed-2026-07-21"
+    },
+    {
+      "slug": "how-to-fit-a-backpack",
+      "path": "/guides/how-to-fit-a-backpack/",
+      "contentType": "guide",
+      "category": "backpacks",
+      "primaryKeyword": "how to fit a backpack",
+      "cluster": null,
+      "products": [],
+      "publishDate": "2026-07-21",
+      "agentRunId": "seed-2026-07-21"
+    },
+    {
+      "slug": "sleeping-bag-temperature-ratings-explained",
+      "path": "/guides/sleeping-bag-temperature-ratings-explained/",
+      "contentType": "guide",
+      "category": "sleep-systems",
+      "primaryKeyword": "sleeping bag temperature ratings",
+      "cluster": null,
+      "products": [],
+      "publishDate": "2026-07-21",
+      "agentRunId": "seed-2026-07-21"
+    }
+  ]
+}

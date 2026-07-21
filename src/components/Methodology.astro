@@ -1,0 +1,29 @@
+---
+/**
+ * "How we picked" block — required on every roundup. States the research-
+ * synthesis methodology honestly (integrity rule 1) and links the full page.
+ */
+import { url } from '@lib/url';
+
+interface Props {
+  /** article-specific criteria, e.g. "verified trail weight under 45 oz" */
+  criteria: string[];
+  researchDoc?: string;
+}
+const { criteria } = Astro.props;
+---
+
+<section class="not-prose my-8 rounded-sm border-l-4 border-pine bg-pine-light/60 p-4" aria-label="How we picked">
+  <h2 class="text-sm font-bold uppercase tracking-wide text-pine">How we picked</h2>
+  <p class="mt-2 text-sm leading-relaxed">
+    We did not field-test these products, and we won't pretend we did. This comparison is research
+    synthesis: manufacturer specifications taken from official spec sheets, patterns in verified owner
+    reviews across multiple retailers, and published third-party testing where it exists. Every number
+    traces to a recorded source; where a spec isn't published, we say "not published" instead of guessing.
+    Read the full methodology on <a href={url('/how-we-review/')} class="underline underline-offset-2 hover:text-rust">How We Review</a>.
+  </p>
+  <p class="mt-3 text-sm font-bold">For this comparison, products had to meet these criteria:</p>
+  <ul class="mt-1 list-disc pl-5 text-sm space-y-0.5">
+    {criteria.map((c) => <li>{c}</li>)}
+  </ul>
+</section>

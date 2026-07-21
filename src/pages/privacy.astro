@@ -1,0 +1,46 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
+import { url } from '@lib/url';
+import { SITE_NAME } from '@data/site';
+---
+
+<BaseLayout title="Privacy Policy" description="What data Ounce Ledger collects (analytics events via PostHog), what it never collects, how affiliate links affect tracking, and how to opt out.">
+  <div class="mx-auto max-w-3xl px-4 py-8">
+    <Breadcrumbs crumbs={[{ label: 'Home', href: '/' }, { label: 'Privacy' }]} />
+    <h1 class="mt-4 text-3xl font-bold tracking-tight">Privacy policy</h1>
+    <p class="mt-2 font-mono text-xs text-ink-soft">Last updated: July 21, 2026</p>
+
+    <div class="prose mt-6">
+      <h2>What we collect</h2>
+      <p>
+        {SITE_NAME} uses <a href="https://posthog.com" rel="noopener">PostHog</a> for product analytics.
+        We record page views and a small set of interaction events: which articles are read, how far down
+        the page readers scroll, when a comparison table is sorted, how long a page stays open, and when
+        an outbound product link is clicked (including which product and where on the page the link
+        was). This data is used to decide what to write next and to fix pages that aren't useful.
+      </p>
+      <h2>What we don't collect</h2>
+      <ul>
+        <li>No account system, so no passwords or profiles.</li>
+        <li>No sale of personal data to anyone, full stop.</li>
+        <li>The email signup form stores your address with our email provider solely to send the newsletter; unsubscribe links are in every email.</li>
+      </ul>
+      <h2>Affiliate links and third parties</h2>
+      <p>
+        When you click a product link, you leave this site and land on a retailer's site (REI, Amazon,
+        or a brand's own store). Those retailers set their own cookies to attribute the referral —
+        that's how affiliate commissions work — and their privacy policies govern what happens there.
+        See our <a href={url('/affiliate-disclosure/')}>affiliate disclosure</a>.
+      </p>
+      <h2>Opting out</h2>
+      <p>
+        Analytics respects browser-level controls: enable "Do Not Track" or block the PostHog domain
+        with any content blocker and the site works identically. There is no paywall or feature gate
+        tied to tracking.
+      </p>
+      <h2>Contact</h2>
+      <p>Privacy questions: use the <a href={url('/contact/')}>contact page</a>.</p>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,9 @@
+---
+/** Serialize a JSON-LD object into the page head-adjacent markup. */
+interface Props {
+  data: Record<string, unknown>;
+}
+const { data } = Astro.props;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(data)} is:inline />

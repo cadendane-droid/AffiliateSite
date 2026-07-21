@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
+import ArticleCard from '@components/ArticleCard.astro';
+
+const guides = (await getCollection('articles', ({ data }) => !data.draft && data.contentType === 'guide')).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+---
+
+<BaseLayout title="Backpacking Guides" description="Non-commercial skills and knowledge guides for thru-hikers and multi-day backpackers: fit, temperature ratings, base weight, and trail know-how.">
+  <div class="mx-auto max-w-5xl px-4 py-8">
+    <Breadcrumbs crumbs={[{ label: 'Home', href: '/' }, { label: 'Guides' }]} />
+    <h1 class="mt-4 text-3xl font-bold tracking-tight">Guides</h1>
+    <p class="mt-2 max-w-2xl text-ink-soft">
+      Knowledge, not products. These guides carry no affiliate links — they exist so the gear
+      recommendations elsewhere on the site land on informed readers.
+    </p>
+    <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {guides.map((g) => <ArticleCard article={g} />)}
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cadendane-droid.github.io/AffiliateSite/sitemap-index.xml

@@ -1,0 +1,28 @@
+{
+  "name": "ounce-ledger",
+  "description": "Ounce Ledger — backpacking gear, weighed and verified. Research-synthesis reviews for thru-hikers and multi-day backpackers.",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "npm run integrity && astro check && astro build",
+    "build:only": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "integrity": "node scripts/integrity-check.mjs"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/mdx": "^4.3.0",
+    "@astrojs/rss": "^4.0.12",
+    "@astrojs/sitemap": "^3.4.1",
+    "@tailwindcss/vite": "^4.1.11",
+    "astro": "^5.12.0",
+    "tailwindcss": "^4.1.11",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "gray-matter": "^4.0.3"
+  }
+}

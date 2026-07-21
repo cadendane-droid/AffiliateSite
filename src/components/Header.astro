@@ -1,0 +1,35 @@
+---
+import { url } from '@lib/url';
+import { SITE_NAME } from '@data/site';
+import { CATEGORY_META } from '@data/site';
+
+const nav = [
+  { href: '/gear/', label: 'Gear' },
+  { href: '/guides/', label: 'Guides' },
+  { href: '/how-we-review/', label: 'How We Review' },
+  { href: '/about/', label: 'About' },
+];
+---
+
+<header class="border-b-2 border-ink bg-paper">
+  <div class="mx-auto max-w-5xl px-4 py-4 flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2">
+    <a href={url('/')} class="group flex items-baseline gap-2">
+      <span class="font-mono text-rust font-bold text-lg leading-none" aria-hidden="true">⚖</span>
+      <span class="text-xl font-bold tracking-tight group-hover:text-rust">{SITE_NAME}</span>
+    </a>
+    <nav aria-label="Main">
+      <ul class="flex flex-wrap gap-x-6 gap-y-1 text-sm font-medium">
+        {nav.map((item) => (
+          <li><a href={url(item.href)} class="hover:text-rust underline-offset-4 hover:underline">{item.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+  <div class="border-t border-rule bg-paper-dark overflow-x-auto">
+    <ul class="mx-auto max-w-5xl px-4 py-1.5 flex gap-4 text-xs whitespace-nowrap text-ink-soft">
+      {CATEGORY_META.map((c) => (
+        <li><a href={url(`/gear/${c.slug}/`)} class="hover:text-rust">{c.title}</a></li>
+      ))}
+    </ul>
+  </div>
+</header>

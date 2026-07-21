@@ -1,0 +1,25 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
+import { url } from '@lib/url';
+import { CATEGORY_META } from '@data/site';
+---
+
+<BaseLayout title="All Gear Categories" description="Every backpacking gear category we cover: shelters, sleep systems, backpacks, cooking, water, clothing, footwear, navigation and safety, tools and repair.">
+  <div class="mx-auto max-w-5xl px-4 py-8">
+    <Breadcrumbs crumbs={[{ label: 'Home', href: '/' }, { label: 'Gear' }]} />
+    <h1 class="mt-4 text-3xl font-bold tracking-tight">Gear categories</h1>
+    <p class="mt-2 max-w-2xl text-ink-soft">
+      Nine categories, one lens: weight, packability, and trail durability. If it only makes sense next to
+      a vehicle, we don't cover it.
+    </p>
+    <div class="mt-6 grid gap-3 sm:grid-cols-3">
+      {CATEGORY_META.map((c) => (
+        <a href={url(`/gear/${c.slug}/`)} class="group rounded-sm border border-rule bg-paper p-4 hover:border-rust">
+          <p class="font-bold group-hover:text-rust">{c.title}</p>
+          <p class="mt-1 text-sm text-ink-soft">{c.blurb}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

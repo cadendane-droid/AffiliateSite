@@ -1,0 +1,61 @@
+---
+/**
+ * Category hub: intro copy (what matters in this category), a comparison
+ * table of everything reviewed in it, and a card grid of articles.
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
+import AffiliateDisclosure from '@components/AffiliateDisclosure.astro';
+import ArticleCard from '@components/ArticleCard.astro';
+import ComparisonTable from '@components/ComparisonTable.astro';
+import { CATEGORY_META, categoryMeta } from '@data/site';
+
+export function getStaticPaths() {
+  return CATEGORY_META.map((c) => ({ params: { category: c.slug } }));
+}
+
+const { category } = Astro.params;
+const meta = categoryMeta(category);
+
+const articles = (await getCollection('articles', ({ data }) => !data.draft && data.category === category)).sort(
+  (a, b) => b.data.updatedDate.valueOf() - a.data.updatedDate.valueOf()
+);
+const reviewedProducts = articles.flatMap((a) => a.data.products);
+const hasAffiliate = reviewedProducts.length > 0;
+---
+
+<BaseLayout title={`${meta.title} — Backpacking ${meta.title} Reviews`} description={meta.intro.slice(0, 160)} category={category}>
+  <div class="mx-auto max-w-5xl px-4 py-8">
+    <Breadcrumbs crumbs={[{ label: 'Home', href: '/' }, { label: 'Gear', href: '/gear/' }, { label: meta.title }]} />
+    <h1 class="mt-4 text-3xl font-bold tracking-tight">{meta.title}</h1>
+    <p class="mt-3 max-w-3xl text-ink-soft leading-relaxed">{meta.intro}</p>
+
+    {hasAffiliate && (
+      <div class="mt-5 max-w-3xl">
+        <AffiliateDisclosure />
+      </div>
+    )}
+
+    {reviewedProducts.length > 0 && (
+      <section class="mt-8" aria-label={`Everything reviewed in ${meta.title}`}>
+        <h2 class="text-xl font-bold">Everything we've reviewed in {meta.title.toLowerCase()}</h2>
+        <p class="mb-3 mt-1 text-sm text-ink-soft">Click a column header to sort.</p>
+        <ComparisonTable products={reviewedProducts} keySpecLabel="Key spec" tableId={`hub-${category}`} />
+      </section>
+    )}
+
+    <section class="mt-10" aria-label="Articles">
+      <h2 class="text-xl font-bold">Articles</h2>
+      {articles.length > 0 ? (
+        <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {articles.map((a) => <ArticleCard article={a} />)}
+        </div>
+      ) : (
+        <p class="mt-3 text-ink-soft">
+          Nothing published in this category yet — it's on the schedule. New comparisons publish daily.
+        </p>
+      )}
+    </section>
+  </div>
+</BaseLayout>

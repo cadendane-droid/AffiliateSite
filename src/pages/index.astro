@@ -1,0 +1,75 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import ArticleCard from '@components/ArticleCard.astro';
+import EmailCapture from '@components/EmailCapture.astro';
+import { url } from '@lib/url';
+import { SITE_NAME, SITE_PROMISE, CATEGORY_META } from '@data/site';
+
+const articles = (await getCollection('articles', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+const newest = articles.slice(0, 6);
+---
+
+<BaseLayout title={SITE_NAME} description={SITE_PROMISE}>
+  <!-- Hero -->
+  <section class="border-b border-rule bg-paper-dark">
+    <div class="mx-auto max-w-5xl px-4 py-14 sm:py-20">
+      <p class="font-mono text-xs uppercase tracking-widest text-rust">Backpacking gear, weighed and verified</p>
+      <h1 class="mt-3 max-w-3xl text-3xl sm:text-5xl font-bold leading-tight tracking-tight">
+        Build a lighter pack without gambling on marketing copy.
+      </h1>
+      <p class="mt-4 max-w-2xl text-lg text-ink-soft leading-relaxed">{SITE_PROMISE}</p>
+    </div>
+  </section>
+
+  <!-- Start here -->
+  <section class="mx-auto max-w-5xl px-4 py-10" aria-label="Start here">
+    <div class="rounded-sm border-l-4 border-rust bg-paper-dark p-5">
+      <h2 class="text-sm font-bold uppercase tracking-widest text-ink-soft">Start here</h2>
+      <div class="mt-3 grid gap-4 sm:grid-cols-3 text-sm">
+        <div>
+          <p class="font-bold">New to backpacking?</p>
+          <p class="mt-1 text-ink-soft">Learn how a pack should actually fit before you spend anything.</p>
+          <a href={url('/guides/how-to-fit-a-backpack/')} class="mt-1 inline-block font-medium text-rust underline underline-offset-2">How to fit a backpack →</a>
+        </div>
+        <div>
+          <p class="font-bold">Decoding spec sheets?</p>
+          <p class="mt-1 text-ink-soft">Temperature ratings are the most misread number in gear.</p>
+          <a href={url('/guides/sleeping-bag-temperature-ratings-explained/')} class="mt-1 inline-block font-medium text-rust underline underline-offset-2">Temperature ratings, explained →</a>
+        </div>
+        <div>
+          <p class="font-bold">Skeptical of us?</p>
+          <p class="mt-1 text-ink-soft">Good. Read exactly how we evaluate gear — and what we don't do.</p>
+          <a href={url('/how-we-review/')} class="mt-1 inline-block font-medium text-rust underline underline-offset-2">How we review →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newest reviews -->
+  <section class="mx-auto max-w-5xl px-4 py-6" aria-label="Latest articles">
+    <h2 class="text-xl font-bold">Latest from the ledger</h2>
+    <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {newest.map((a) => <ArticleCard article={a} />)}
+    </div>
+  </section>
+
+  <!-- Category grid -->
+  <section class="mx-auto max-w-5xl px-4 py-10" aria-label="Gear categories">
+    <h2 class="text-xl font-bold">Browse by category</h2>
+    <div class="mt-4 grid gap-3 sm:grid-cols-3">
+      {CATEGORY_META.map((c) => (
+        <a href={url(`/gear/${c.slug}/`)} class="group rounded-sm border border-rule bg-paper p-4 hover:border-rust">
+          <p class="font-bold group-hover:text-rust">{c.title}</p>
+          <p class="mt-1 text-sm text-ink-soft">{c.blurb}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-4 py-10">
+    <EmailCapture />
+  </section>
+</BaseLayout>

@@ -1,0 +1,90 @@
+---
+/**
+ * Shared article shell for roundups, reviews, and guides.
+ * Renders: breadcrumbs, header, affiliate disclosure (above the fold, only
+ * when the article has products), verdict box + comparison table (roundups),
+ * the MDX body, FAQ block, related articles, and all JSON-LD blocks.
+ */
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
+import AffiliateDisclosure from '@components/AffiliateDisclosure.astro';
+import VerdictBox from '@components/VerdictBox.astro';
+import ComparisonTable from '@components/ComparisonTable.astro';
+import FaqBlock from '@components/FaqBlock.astro';
+import RelatedArticles from '@components/RelatedArticles.astro';
+import JsonLd from '@components/JsonLd.astro';
+import { articleJsonLd } from '@lib/jsonld';
+import { url, articlePath } from '@lib/url';
+import { getAuthor } from '@data/authors';
+import { categoryMeta } from '@data/site';
+
+interface Props {
+  entry: CollectionEntry<'articles'>;
+  /** which keySpecs key becomes the comparison table's "key spec" column */
+  keySpecLabel?: string;
+  crumbs: { label: string; href?: string }[];
+}
+
+const { entry, keySpecLabel, crumbs } = Astro.props;
+const d = entry.data;
+const author = getAuthor(d.author);
+const hasProducts = d.products.length > 0;
+const canonical = new URL(url(articlePath(d.contentType, d.category, d.slug)), Astro.site).toString();
+const jsonLdBlocks = articleJsonLd(d, canonical);
+const fmt = (date: Date) => date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<BaseLayout
+  title={d.title}
+  description={d.description}
+  articleSlug={d.slug}
+  category={d.category}
+  contentType={d.contentType}
+  ogType="article"
+>
+  <Fragment slot="head">
+    {jsonLdBlocks.map((block) => <JsonLd data={block} />)}
+  </Fragment>
+
+  <article class="mx-auto max-w-3xl px-4 py-8">
+    <Breadcrumbs crumbs={crumbs} />
+
+    <header class="mt-4">
+      <p class="text-xs font-bold uppercase tracking-widest text-pine">
+        {categoryMeta(d.category).title}
+        {d.contentType === 'guide' ? ' · Guide' : d.contentType === 'review' ? ' · Review' : ' · Comparison'}
+      </p>
+      <h1 class="mt-2 text-3xl sm:text-4xl font-bold leading-tight tracking-tight">{d.title}</h1>
+      <p class="mt-3 text-lg text-ink-soft leading-relaxed">{d.description}</p>
+      <p class="mt-3 font-mono text-xs text-ink-soft">
+        By <a href={url(`/authors/${author.slug}/`)} class="underline underline-offset-2 hover:text-rust">{author.name}</a>
+        · Published <time datetime={d.publishDate.toISOString()}>{fmt(d.publishDate)}</time>
+        · Updated <time datetime={d.updatedDate.toISOString()}>{fmt(d.updatedDate)}</time>
+      </p>
+    </header>
+
+    {hasProducts && (
+      <div class="mt-5">
+        <AffiliateDisclosure />
+      </div>
+    )}
+
+    {d.contentType === 'roundup' && (
+      <div class="mt-6 space-y-8">
+        <VerdictBox products={d.products} />
+        <section aria-label="Specification comparison">
+          <h2 class="mb-2 text-sm font-bold uppercase tracking-widest text-ink-soft">Spec comparison — click a column to sort</h2>
+          <ComparisonTable products={d.products} keySpecLabel={keySpecLabel ?? 'Key spec'} tableId={d.slug} />
+        </section>
+      </div>
+    )}
+
+    <div class="prose mt-8">
+      <slot />
+    </div>
+
+    <FaqBlock faqs={d.faqs} />
+    <RelatedArticles paths={d.internalLinks} currentSlug={d.slug} />
+  </article>
+</BaseLayout>

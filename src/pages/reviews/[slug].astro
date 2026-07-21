@@ -1,0 +1,31 @@
+---
+/**
+ * Single-product deep-dive review.
+ */
+import { getCollection, render } from 'astro:content';
+import ArticleLayout from '@layouts/ArticleLayout.astro';
+import { categoryMeta } from '@data/site';
+
+export async function getStaticPaths() {
+  const reviews = await getCollection('articles', ({ data }) => !data.draft && data.contentType === 'review');
+  return reviews.map((entry) => ({
+    params: { slug: entry.data.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const meta = categoryMeta(entry.data.category);
+---
+
+<ArticleLayout
+  entry={entry}
+  crumbs={[
+    { label: 'Home', href: '/' },
+    { label: meta.title, href: `/gear/${entry.data.category}/` },
+    { label: entry.data.title },
+  ]}
+>
+  <Content />
+</ArticleLayout>

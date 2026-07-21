@@ -1,0 +1,63 @@
+---
+/**
+ * Sortable spec comparison table. Sorting is progressive enhancement via
+ * src/scripts/table-sort.ts (the one permitted non-analytics script).
+ * Null weights render as "not published" — never a guess (integrity rule 3).
+ */
+import { formatWeight, ozToGrams } from '@lib/url';
+
+interface ProductLike {
+  name: string;
+  brand: string;
+  priceBand: string;
+  weightOz: number | null;
+  keySpecs: Record<string, string>;
+  bestFor: string;
+  award: string | null;
+}
+
+interface Props {
+  products: ProductLike[];
+  /** which keySpecs key to surface as the "key spec" column */
+  keySpecLabel: string;
+  tableId?: string;
+}
+
+const { products, keySpecLabel, tableId = 'comparison' } = Astro.props;
+---
+
+<div class="overflow-x-auto rounded-sm border border-rule">
+  <table class="spec-table w-full min-w-[36rem] text-sm" data-sort-table data-table-id={tableId}>
+    <thead class="bg-paper-dark text-left text-xs uppercase tracking-wide text-ink-soft">
+      <tr>
+        <th class="px-3 py-2" data-sortable data-sort-type="text" scope="col">Product</th>
+        <th class="px-3 py-2" data-sortable data-sort-type="number" scope="col">Weight</th>
+        <th class="px-3 py-2" data-sortable data-sort-type="text" scope="col">Price band</th>
+        <th class="px-3 py-2" scope="col">{keySpecLabel}</th>
+        <th class="px-3 py-2" scope="col">Best for</th>
+      </tr>
+    </thead>
+    <tbody>
+      {products.map((p) => (
+        <tr class="border-t border-rule bg-paper even:bg-paper-dark/40 align-top">
+          <td class="px-3 py-2 font-medium" data-sort-value={p.name}>
+            {p.name}
+            {p.award && (
+              <span class="ml-1 rounded-sm bg-pine-light px-1.5 py-0.5 text-[10px] font-bold uppercase text-pine">
+                {p.award.replace('-', ' ')}
+              </span>
+            )}
+            <span class="block text-xs font-normal text-ink-soft">{p.brand}</span>
+          </td>
+          <td class="px-3 py-2 font-mono text-xs" data-sort-value={p.weightOz === null ? Number.MAX_SAFE_INTEGER : ozToGrams(p.weightOz)}>
+            {formatWeight(p.weightOz)}
+          </td>
+          <td class="px-3 py-2 font-mono" data-sort-value={p.priceBand.length}>{p.priceBand}</td>
+          <td class="px-3 py-2">{p.keySpecs[keySpecLabel] ?? 'not published'}</td>
+        <td class="px-3 py-2 text-ink-soft">{p.bestFor}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+<script src="../scripts/table-sort.ts"></script>

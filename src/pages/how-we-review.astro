@@ -1,0 +1,79 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
+import { url } from '@lib/url';
+---
+
+<BaseLayout title="How We Review" description="Ounce Ledger's methodology, stated plainly: research synthesis of manufacturer specs, verified owner reviews, and published third-party testing — with no fabricated field testing, ever.">
+  <div class="mx-auto max-w-3xl px-4 py-8">
+    <Breadcrumbs crumbs={[{ label: 'Home', href: '/' }, { label: 'How We Review' }]} />
+    <h1 class="mt-4 text-3xl font-bold tracking-tight">How we review gear</h1>
+
+    <div class="prose mt-6">
+      <p>
+        <strong>The most important thing on this page: we do not field-test the gear we write about, and
+        no article on this site will ever claim we did.</strong> There is no garage full of tents here, no
+        gear closet, no staff photographer on the Pacific Crest Trail. Sites that fake that experience are
+        the reason you should be skeptical of gear reviews — including ours. So here is exactly what we do
+        instead, and why we think it's honest and useful.
+      </p>
+
+      <h2>Our method: research synthesis</h2>
+      <p>Every recommendation is built from three source types, in this order of trust:</p>
+      <ol>
+        <li>
+          <strong>Manufacturer specifications</strong> — weight, dimensions, materials, and ratings taken
+          from the manufacturer's own published spec sheet, recorded with a source link in an internal
+          research document before the article is written. When a manufacturer doesn't publish a number,
+          we print "not published." We never estimate, average, or guess a spec.
+        </li>
+        <li>
+          <strong>Verified owner reviews</strong> — patterns across large numbers of purchase-verified
+          reviews on multiple retailers. One review means nothing; two hundred people independently
+          reporting a zipper failure means something. We report the pattern, not cherry-picked quotes.
+        </li>
+        <li>
+          <strong>Published third-party testing</strong> — independent lab measurements and long-term
+          field reports from publications and testers who do physically use the gear. Where our specs or
+          conclusions rely on their work, that's recorded in the research document.
+        </li>
+      </ol>
+
+      <h2>What our awards mean</h2>
+      <ul>
+        <li><strong>Top pick</strong> — best overall balance of weight, durability evidence, and price band for the target reader (a beginner-to-intermediate multi-day backpacker).</li>
+        <li><strong>Budget pick</strong> — the cheapest option we'd actually put in a pack, not the cheapest option that exists.</li>
+        <li><strong>Lightweight pick</strong> — the lightest option whose durability evidence doesn't disqualify it.</li>
+      </ul>
+
+      <h2>Rules we enforce in code</h2>
+      <p>
+        These aren't aspirations — an automated integrity check runs on every single build, and the site
+        literally cannot publish if a rule is violated:
+      </p>
+      <ul>
+        <li>No claimed first-hand testing, wearing, carrying, or field use. Phrases that fake experience fail the build.</li>
+        <li>Every weight, price, and dimension traces to a source recorded in a research document.</li>
+        <li>Unknown specs render as "not published," never a guess.</li>
+        <li>No fake urgency, fake scarcity, invented review counts, or fabricated quotes.</li>
+        <li>Prices appear as bands ($ / $$ / $$$) so they can't silently go stale.</li>
+        <li>An affiliate disclosure appears above the fold on every page with affiliate links.</li>
+      </ul>
+
+      <h2>How money flows (and doesn't)</h2>
+      <p>
+        The site earns affiliate commissions when you buy through our links — details on the
+        <a href={url('/affiliate-disclosure/')}>affiliate disclosure page</a>. What we don't do: accept
+        payment for placement, let a commission rate change a ranking, or take free products in exchange
+        for coverage. Rankings are set before monetization is considered, and the same registry of links
+        is used regardless of which product wins.
+      </p>
+
+      <h2>Corrections</h2>
+      <p>
+        If a spec on this site is wrong, <a href={url('/contact/')}>tell us</a> and cite the source. We'd
+        rather correct a number than defend it. Corrections update the article's "updated" date.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

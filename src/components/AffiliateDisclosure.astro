@@ -1,0 +1,17 @@
+---
+/**
+ * FTC-compliant disclosure. Must render above the fold on every page that
+ * contains affiliate links — integrity-check verifies the page templates
+ * that render products include this component before any product content.
+ */
+import { url } from '@lib/url';
+---
+
+<aside
+  class="rounded-sm border border-rule bg-amber-note px-4 py-2.5 text-sm text-ink-soft"
+  aria-label="Affiliate disclosure"
+>
+  This page contains affiliate links. If you buy through them, we earn a commission at no extra cost to
+  you. It never affects which products we recommend or how we rank them.
+  <a href={url('/affiliate-disclosure/')} class="underline underline-offset-2 hover:text-rust">How this works</a>.
+</aside>

@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import ArticleCard from '@components/ArticleCard.astro';
+import { articlePath } from '@lib/url';
+
+interface Props {
+  /** internalLinks paths from the current article's frontmatter */
+  paths: string[];
+  currentSlug: string;
+}
+const { paths, currentSlug } = Astro.props;
+
+const all = await getCollection('articles', ({ data }) => !data.draft);
+const related = all.filter(
+  (a) => a.data.slug !== currentSlug && paths.includes(articlePath(a.data.contentType, a.data.category, a.data.slug))
+).slice(0, 3);
+---
+
+{related.length > 0 && (
+  <section class="not-prose mt-10 border-t-2 border-ink pt-6" aria-label="Related articles">
+    <h2 class="text-sm font-bold uppercase tracking-widest text-ink-soft">Keep reading</h2>
+    <div class="mt-4 grid gap-4 sm:grid-cols-3">
+      {related.map((a) => <ArticleCard article={a} />)}
+    </div>
+  </section>
+)}

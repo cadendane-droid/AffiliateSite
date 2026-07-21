@@ -1,0 +1,77 @@
+---
+/**
+ * Per-product section in a roundup: specs line, pros/cons, CTA.
+ */
+import AffiliateLink from '@components/AffiliateLink.astro';
+import { formatWeight } from '@lib/url';
+
+interface ProductLike {
+  name: string;
+  brand: string;
+  affiliateUrl: string;
+  priceBand: string;
+  weightOz: number | null;
+  keySpecs: Record<string, string>;
+  bestFor: string;
+  pros: string[];
+  cons: string[];
+  award: string | null;
+}
+
+interface Props {
+  product: ProductLike;
+  index: number;
+}
+
+const { product: p, index } = Astro.props;
+const AWARD_LABELS: Record<string, string> = {
+  'top-pick': 'Top pick',
+  'budget-pick': 'Budget pick',
+  'lightweight-pick': 'Lightweight pick',
+};
+---
+
+<section class="not-prose my-8 rounded-sm border border-rule bg-paper" id={`product-${index + 1}`}>
+  <header class="border-b border-rule bg-paper-dark px-4 py-3 flex flex-wrap items-center justify-between gap-2">
+    <div>
+      <h3 class="text-lg font-bold leading-tight">
+        {index + 1}. {p.name}
+        {p.award && (
+          <span class="ml-2 align-middle rounded-sm bg-pine px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide text-white">
+            {AWARD_LABELS[p.award] ?? p.award}
+          </span>
+        )}
+      </h3>
+      <p class="font-mono text-xs text-ink-soft tabular">
+        {p.brand} · {formatWeight(p.weightOz)} · {p.priceBand}
+      </p>
+    </div>
+    <AffiliateLink linkKey={p.affiliateUrl} position={`product-section-${index + 1}`} ctaVariant="check-price" />
+  </header>
+  <div class="px-4 py-4 space-y-4">
+    <dl class="grid gap-x-6 gap-y-1 sm:grid-cols-2 text-sm">
+      {Object.entries(p.keySpecs).map(([k, v]) => (
+        <div class="flex justify-between gap-4 border-b border-dotted border-rule py-1">
+          <dt class="text-ink-soft">{k}</dt>
+          <dd class="font-mono text-right tabular">{v}</dd>
+        </div>
+      ))}
+    </dl>
+    <div class="grid gap-4 sm:grid-cols-2">
+      <div class="rounded-sm bg-pine-light p-3">
+        <p class="text-xs font-bold uppercase tracking-wide text-pine">Where it earns its place</p>
+        <ul class="mt-1.5 space-y-1 text-sm list-disc pl-4">
+          {p.pros.map((pro) => <li>{pro}</li>)}
+        </ul>
+      </div>
+      <div class="rounded-sm bg-paper-dark p-3">
+        <p class="text-xs font-bold uppercase tracking-wide text-rust">What you give up</p>
+        <ul class="mt-1.5 space-y-1 text-sm list-disc pl-4">
+          {p.cons.map((con) => <li>{con}</li>)}
+        </ul>
+      </div>
+    </div>
+    <p class="text-sm"><span class="font-bold">Best for:</span> {p.bestFor}</p>
+    <div class="prose-slot"><slot /></div>
+  </div>
+</section>

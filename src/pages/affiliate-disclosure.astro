@@ -1,0 +1,51 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
+import { url } from '@lib/url';
+import { SITE_NAME } from '@data/site';
+---
+
+<BaseLayout title="Affiliate Disclosure" description="Plain-language disclosure of how Ounce Ledger earns affiliate commissions, which programs we participate in, and the rules that keep commissions from influencing rankings.">
+  <div class="mx-auto max-w-3xl px-4 py-8">
+    <Breadcrumbs crumbs={[{ label: 'Home', href: '/' }, { label: 'Affiliate Disclosure' }]} />
+    <h1 class="mt-4 text-3xl font-bold tracking-tight">Affiliate disclosure</h1>
+
+    <div class="prose mt-6">
+      <p>
+        <strong>The short version: when you click a product link on this site and buy something, the
+        retailer may pay us a commission. It costs you nothing extra. That's how the site is funded.</strong>
+      </p>
+
+      <h2>The details</h2>
+      <p>
+        {SITE_NAME} participates in affiliate programs, which may include the REI Co-op affiliate
+        program, Amazon Associates, AvantLink merchant programs, and ShareASale merchant programs. As an
+        Amazon Associates participant, we earn from qualifying purchases. Affiliate links on this site
+        are marked with <code>rel="sponsored"</code> in the page code, open in a new tab, and every page
+        containing them carries a disclosure notice near the top — before the first product link, not
+        buried in a footer. This disclosure follows the FTC's Endorsement Guides (16 CFR Part 255).
+      </p>
+
+      <h2>What commissions do not buy</h2>
+      <ul>
+        <li>Rankings. Our picks are set by the methodology on <a href={url('/how-we-review/')}>How We Review</a> before monetization is considered. A product with no affiliate program can and does win categories.</li>
+        <li>Coverage. Brands cannot pay to be included, and we don't accept free products in exchange for reviews.</li>
+        <li>Softened criticism. The "what you give up" section appears for every product, including the ones that pay the best.</li>
+      </ul>
+
+      <h2>What we don't do</h2>
+      <p>
+        No fake countdown timers, no invented stock-scarcity theater, no invented review counts, no
+        made-up quotes. Prices on this site appear as bands ($ / $$ / $$$) rather than exact figures,
+        because exact prices change and stale numbers mislead. Always confirm the current price on the
+        retailer's page.
+      </p>
+
+      <h2>Questions</h2>
+      <p>
+        If anything about how this works is unclear, <a href={url('/contact/')}>contact us</a> — we'd
+        rather explain it than have you wonder.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

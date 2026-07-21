@@ -1,0 +1,34 @@
+---
+/**
+ * Roundup/comparison article — the money page type.
+ */
+import { getCollection, render } from 'astro:content';
+import ArticleLayout from '@layouts/ArticleLayout.astro';
+import { categoryMeta } from '@data/site';
+
+export async function getStaticPaths() {
+  const roundups = await getCollection('articles', ({ data }) => !data.draft && data.contentType === 'roundup');
+  return roundups.map((entry) => ({
+    params: { category: entry.data.category, slug: entry.data.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const meta = categoryMeta(entry.data.category);
+const keySpecLabel = entry.data.keySpecLabel;
+---
+
+<ArticleLayout
+  entry={entry}
+  keySpecLabel={keySpecLabel}
+  crumbs={[
+    { label: 'Home', href: '/' },
+    { label: 'Gear', href: '/gear/' },
+    { label: meta.title, href: `/gear/${entry.data.category}/` },
+    { label: entry.data.title },
+  ]}
+>
+  <Content />
+</ArticleLayout>

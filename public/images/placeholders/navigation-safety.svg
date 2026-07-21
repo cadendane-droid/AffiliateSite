@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="placeholder graphic for navigation safety category">
+  <rect width="1200" height="630" fill="#f1ece3"/>
+  <rect x="24" y="24" width="1152" height="582" fill="none" stroke="#1f1b16" stroke-width="4"/>
+  <path d="M420 420 L600 200 L780 420" fill="none" stroke="#b4441c" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="470" y1="470" x2="730" y2="470" stroke="#1f1b16" stroke-width="8" stroke-linecap="round"/>
+  <text x="600" y="540" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="40" fill="#575046" letter-spacing="6">navigation safety</text>
+</svg>

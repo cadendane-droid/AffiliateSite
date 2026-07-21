@@ -1,0 +1,17 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { url } from '@lib/url';
+---
+
+<BaseLayout title="Page not found" description="This page doesn't exist. It may have moved when an article was updated — try the gear categories or guides index.">
+  <div class="mx-auto max-w-3xl px-4 py-20 text-center">
+    <p class="font-mono text-6xl font-bold text-rust">404</p>
+    <h1 class="mt-4 text-2xl font-bold">This page weighs zero grams — it doesn't exist.</h1>
+    <p class="mt-2 text-ink-soft">The link may be stale. Everything real is reachable from here:</p>
+    <div class="mt-6 flex flex-wrap justify-center gap-3 text-sm font-medium">
+      <a href={url('/')} class="rounded-sm bg-ink px-4 py-2 text-white hover:bg-rust">Home</a>
+      <a href={url('/gear/')} class="rounded-sm border border-rule px-4 py-2 hover:border-rust hover:text-rust">Gear categories</a>
+      <a href={url('/guides/')} class="rounded-sm border border-rule px-4 py-2 hover:border-rust hover:text-rust">Guides</a>
+    </div>
+  </div>
+</BaseLayout>

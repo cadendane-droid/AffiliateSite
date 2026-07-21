@@ -1,0 +1,38 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Breadcrumbs from '@components/Breadcrumbs.astro';
+import { url } from '@lib/url';
+---
+
+<BaseLayout title="Contact" description="How to reach Ounce Ledger: spec corrections, methodology questions, and gear suggestions. Corrections with sources get priority.">
+  <div class="mx-auto max-w-3xl px-4 py-8">
+    <Breadcrumbs crumbs={[{ label: 'Home', href: '/' }, { label: 'Contact' }]} />
+    <h1 class="mt-4 text-3xl font-bold tracking-tight">Contact</h1>
+
+    <div class="prose mt-6">
+      <p>
+        Email <strong>hello@ounceledger.com</strong> — it's read by a human. Three kinds of mail get
+        answered fastest:
+      </p>
+      <ul>
+        <li>
+          <strong>Spec corrections.</strong> If a weight, dimension, or rating on this site is wrong,
+          say which article and link the correct source. Corrections ship ahead of everything else and
+          are logged on the article.
+        </li>
+        <li>
+          <strong>Methodology questions.</strong> If something on <a href={url('/how-we-review/')}>How We Review</a>
+          is unclear or you think a rule is wrong, we want to hear the argument.
+        </li>
+        <li>
+          <strong>Gear suggestions.</strong> Tell us what comparison you wanted and couldn't find. The
+          publishing queue is driven by exactly this kind of note.
+        </li>
+      </ul>
+      <p>
+        What we don't respond to: offers of sponsored posts, paid placements, or "collaboration"
+        pitches. The <a href={url('/affiliate-disclosure/')}>disclosure page</a> explains why.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
