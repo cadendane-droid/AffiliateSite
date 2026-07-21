@@ -82,6 +82,27 @@
       "program": "rei",
       "url": "PENDING_AFFILIATE_ID",
       "fallbackUrl": "https://www.snowpeak.com/products/litemax-stove-gst-120r"
+    },
+    "therm-a-rest-neoair-xlite-nxt": {
+      "name": "Therm-a-Rest NeoAir XLite NXT",
+      "brand": "Therm-a-Rest",
+      "program": "rei",
+      "url": "PENDING_AFFILIATE_ID",
+      "fallbackUrl": "https://www.thermarest.com/sleeping-pads/fast-and-light/neoair-xlite-nxt-sleeping-pad/neoair-xlite-nxt.html"
+    },
+    "nemo-tensor-all-season": {
+      "name": "NEMO Tensor All-Season Ultralight Insulated",
+      "brand": "NEMO Equipment",
+      "program": "rei",
+      "url": "PENDING_AFFILIATE_ID",
+      "fallbackUrl": "https://www.nemoequipment.com/products/tensor-all-season-insulated-sleeping-pad"
+    },
+    "sea-to-summit-ether-light-xr": {
+      "name": "Sea to Summit Ether Light XR Insulated",
+      "brand": "Sea to Summit",
+      "program": "rei",
+      "url": "PENDING_AFFILIATE_ID",
+      "fallbackUrl": "https://seatosummit.com/products/ether-light-xr-insulated-air-sleeping-pad"
     }
   }
 }
