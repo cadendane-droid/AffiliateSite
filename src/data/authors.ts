@@ -14,7 +14,7 @@ export interface Author {
 export const AUTHORS: Author[] = [
   {
     slug: 'ounce-ledger-editors',
-    name: 'The Ounce Ledger Editors',
+    name: 'Caden Orner',
     role: 'Research & Editorial',
     bio: 'Ounce Ledger reviews are produced by a structured research pipeline: we aggregate manufacturer specifications, verified owner reviews, and published third-party lab and field testing, then synthesize them under a fixed methodology with automated integrity checks. We do not field-test gear ourselves, and no article on this site will ever claim otherwise. Every spec we print traces to a recorded source; anything we could not verify is labeled "not published."',
   },
