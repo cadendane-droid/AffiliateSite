@@ -55,7 +55,7 @@ registry makes the tag swap trivial, so there is zero benefit to applying early.
 
 | Program | Status | Applied | Approved | Registry updated |
 |---|---|---|---|---|
-| AvantLink account | PENDING_SIGNUP | — | — | — |
+| AvantLink account | CONFIRMED (application 1626741, JS verification passed 2026-07-21) | 2026-07-21 | pending review | — |
 | REI Co-op | PENDING_SIGNUP | — | — | — |
 | Garage Grown Gear | PENDING_SIGNUP | — | — | — |
 | Zpacks | PENDING_SIGNUP | — | — | — |
