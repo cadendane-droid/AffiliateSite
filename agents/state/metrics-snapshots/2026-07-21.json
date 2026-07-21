@@ -1,0 +1,48 @@
+{
+  "date": "2026-07-21",
+  "windowDays": 7,
+  "totals": { "article_view": 2, "affiliate_click": 0, "email_signup": 0 },
+  "byArticle": [
+    {
+      "path": "/gear/shelters/best-ultralight-trekking-pole-tents/",
+      "article_view": 1,
+      "affiliate_click": 0,
+      "ctr": 0,
+      "scroll_50_rate": 0,
+      "median_time_on_page_s": null
+    },
+    {
+      "path": "/guides/how-to-fit-a-backpack/",
+      "article_view": 1,
+      "affiliate_click": 0,
+      "ctr": 0,
+      "scroll_50_rate": 0,
+      "median_time_on_page_s": 11
+    },
+    {
+      "path": "/gear/water/best-backpacking-water-filters/",
+      "article_view": 0,
+      "affiliate_click": 0,
+      "ctr": 0,
+      "scroll_50_rate": 0,
+      "median_time_on_page_s": null
+    },
+    {
+      "path": "/gear/cooking/best-canister-stoves-backpacking/",
+      "article_view": 0,
+      "affiliate_click": 0,
+      "ctr": 0,
+      "scroll_50_rate": 0,
+      "median_time_on_page_s": null
+    },
+    {
+      "path": "/guides/sleeping-bag-temperature-ratings-explained/",
+      "article_view": 0,
+      "affiliate_click": 0,
+      "ctr": 0,
+      "scroll_50_rate": 0,
+      "median_time_on_page_s": null
+    }
+  ],
+  "notes": "Launch day (site seeded 2026-07-21). Volume is negligible and consistent with QA/dev traffic: 2 article_views total (1 each on best-ultralight-trekking-pole-tents and how-to-fit-a-backpack), 0 affiliate_click, 0 email_signup. Supporting raw counts over the 7d window: scroll_depth=57, time_on_page=3, $pageview=32 ($pageview spans 2026-07-15..21, i.e. pre-launch dev traffic). All engagement events classified $virt_traffic_type=Regular (no bots). Events affiliate_click, comparison_table_sort, email_signup are absent from the project taxonomy (never fired). scroll_50_rate is recorded as 0 because no article-tagged scroll_depth event on the two viewed slugs reached >=50%; most scroll_depth events (30/51 at >=50%) carry no article_slug and could not be attributed to an article. median_time_on_page_s is null where no time_on_page sample exists for the slug. Every metric is orders of magnitude below the L-008 threshold (>=200 article_views/arm) required to judge anything; no experiment can be baselined honestly yet. PostHog reachable via project id 465974 (org Almura); HeavyHiker events confirmed present. No active experiments to evaluate; 0 new experiments registered this run (see decision-log D-003)."
+}

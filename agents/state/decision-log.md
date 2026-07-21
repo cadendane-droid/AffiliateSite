@@ -30,3 +30,9 @@ protocol violation and gets reverted.
 - **Why:** og:image scraping returned brand logos and a wrong product (X-Mid Pro 1 on the X-Mid 2 page) — unverified images would put wrong products next to verified specs.
 - **Desired result:** Zero wrong-product images ever published; image coverage → 100% as programs approve. Review at first datafeed access.
 - **Review:** pending
+
+## 2026-07-21 · 04-seo · 2026-07-21-seo · D-003
+- **Decision:** First SEO run. Registered ZERO new experiments and evaluated zero (none active). Snapshot written to `metrics-snapshots/2026-07-21.json`.
+- **Why:** Site was seeded today; 7-day window shows 2 total article_views (1 each on `best-ultralight-trekking-pole-tents`, `how-to-fit-a-backpack`), 0 affiliate_click, 0 email_signup — all classified `$virt_traffic_type=Regular`, i.e. launch-day QA, not organic demand. Every article is far below the L-008 floor (≥200 article_views/arm before any pre/post judgement). Registering an experiment now would require a degenerate baseline (0 clicks / ~1 view) that cannot be honestly compared later — that is exactly the fabricated-metric failure L-008 and the anti-force-output doctrine forbid. No page has ≥2 weeks of history, so no "decaying page" content-refresh target exists either.
+- **Desired result:** Experiments begin only once at least one article accrues ≥200 article_views in a 7-day window. Until then, daily snapshots accumulate the pre-experiment baseline. Review by 2026-08-04, or sooner if any article crosses ~200 views.
+- **Review:** pending
