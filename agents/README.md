@@ -39,6 +39,7 @@ Routine-based scheduling (recommended): see `agents/routines.md`. Raw cron equiv
 0 11 * * *    claude -p "$(cat agents/03-publisher.md)"
 0 13 * * *    claude -p "$(cat agents/04-seo.md)"
 0 7  * * 0    claude -p "$(cat agents/06-ai-search.md)" # weekly, Sundays, before everything
+0 12 * * 6    claude -p "$(cat agents/07-meta-auditor.md)" # weekly, Saturdays, after meta
 ```
 
 The 1–2 h gaps are deliberate slack so a slow run can't overlap its successor. Do not run two
@@ -69,6 +70,14 @@ agents concurrently — they share git state.
 **06-ai-search** (weekly): reads everything; writes `robots.txt` (AI directives), article edits
 (answer-phrasing/FAQ only), decision-log, learnings, runs log; pushes on green. 05-meta may edit
 its instruction file. `/llms.txt` regenerates from the collection automatically.
+
+**07-meta-auditor** (weekly, Sat 12:00 UTC, after meta): audits every 05-meta decision against
+BRAND.md intent and the evidence meta had at decision time (`instruction-changelog.md` is
+meta's decision file; snapshots dated after a decision don't count toward judging it). Writes
+timestamped, source-cited reports to `agents/state/meta-audits/`; verdicts SOUND /
+QUESTIONABLE / UNSOUND / FLAGRANT. Only power beyond reporting: `git revert` of a FLAGRANT
+(hard-limit-violating) meta commit. Human-owned file; 05-meta may never edit it — the auditor
+watches meta, not the reverse.
 
 "—" = must never touch. Everything not listed: read-only for everyone, writable by humans.
 

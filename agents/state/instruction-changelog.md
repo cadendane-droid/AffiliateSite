@@ -1,15 +1,18 @@
-# Instruction Changelog — owned by 05-meta
+# Instruction Changelog — 05-meta's decision file
 
-Every edit 05-meta makes to `agents/01-research.md` … `agents/04-seo.md` gets an entry here,
-written BEFORE the edit is committed. No entry → the edit is a protocol violation and must be
-reverted. Max three instruction changes per 05-meta run.
+Every edit 05-meta makes to `agents/01-research.md` … `agents/04-seo.md` or
+`agents/06-ai-search.md` gets an entry here, written BEFORE the edit is committed. No entry →
+the edit is a FLAGRANT protocol violation and 07-meta-auditor reverts it. Max three
+instruction changes per 05-meta run. **07-meta-auditor reviews every entry weekly against the
+evidence available at its timestamp** — cite only sources that existed when you decided.
 
 ## Entry format
 
 ```
-## YYYY-MM-DD — change NN (run: <agentRunId>)
+## <ISO-8601 UTC timestamp> — change NN (run: <agentRunId>)
 - **File:** agents/0X-name.md
-- **Rationale:** why, citing specific metrics/log evidence
+- **Rationale:** why — citing the exact decision-time sources consulted
+  (metrics-snapshots/<file>.json, agent-runs.log lines/dates, experiment ids, issue numbers)
 - **Diff:**
   ```diff
   - old line

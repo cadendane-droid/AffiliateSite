@@ -22,6 +22,7 @@ without touching the routines.
 | hh-04-seo | `0 13 * * *` | see below |
 | hh-05-meta | `0 8 * * 6` (Sat) | see below |
 | hh-06-ai-search | `0 7 * * 0` (Sun) | see below |
+| hh-07-meta-auditor | `0 12 * * 6` (Sat, after meta) | see below |
 
 ## Prompts
 
@@ -73,6 +74,15 @@ agents/06-ai-search.md in full, then execute this week's run exactly as they spe
 never claim crawler-level data that doesn't exist.
 ```
 
+### hh-07-meta-auditor (Saturdays 12:00 UTC)
+```
+You are HeavyHiker agent 07-meta-auditor. In this repository, read agents/00-common.md and
+agents/07-meta-auditor.md in full, then execute this week's audit exactly as they specify.
+Run ID: <today's date>-audit. Judge each meta decision only on the evidence that existed at
+its timestamp; label hindsight separately; every claim cites its source; your only power
+beyond reporting is reverting a hard-limit violation.
+```
+
 ## Rollout order (recommended)
 
 1. Enable **hh-01-research** alone for 2–3 days; review its briefs and decision-log entries.
@@ -81,3 +91,5 @@ never claim crawler-level data that doesn't exist.
 4. Add **hh-04-seo** once PostHog shows real traffic (experiments need data to evaluate).
 5. Add **hh-05-meta** and **hh-06-ai-search** after at least one full week of the daily loop —
    both agents need history to read before they can do anything useful.
+6. Add **hh-07-meta-auditor** in the same week as hh-05-meta (same Saturday, 4 hours later) —
+   meta should never run unaudited.

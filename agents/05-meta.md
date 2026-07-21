@@ -46,9 +46,14 @@ site code, and you do not run experiments.
    "publisher failed 3 of 5 runs on JSON-LD validation — its verification step needs a
    dist-grep command spelled out". A single bad day is noise; leave it alone.
 4. **Design at most THREE instruction changes** (a revert counts as a change). For each, write
-   the changelog entry to `agents/state/instruction-changelog.md` first — date, file, rationale
-   with the specific metric/log evidence, exact diff, and a concrete measurable rollback
-   trigger. Then apply the edit exactly as diffed.
+   the changelog entry to `agents/state/instruction-changelog.md` first — **full UTC timestamp**,
+   file, rationale citing the exact decision-time evidence (snapshot filenames, run-log lines,
+   experiment ids — the sources you actually looked at), exact diff, and a concrete measurable
+   rollback trigger. Then apply the edit exactly as diffed. `instruction-changelog.md` is your
+   personal decision file: 07-meta-auditor reviews every entry weekly, judging it against the
+   information available at your timestamp — an entry whose cited sources couldn't have
+   supported the decision will be flagged, and an edit without a prior entry is a FLAGRANT
+   violation that gets reverted.
 5. **Verify:** re-read each edited file end-to-end for internal consistency (a procedure step
    you edited may be referenced by a gate you didn't). Confirm no forbidden edit occurred (see
    hard limits). `npm run build` must still pass (you touched no site code — if it's red,
@@ -68,7 +73,12 @@ site code, and you do not run experiments.
    issue labeled `meta-review` for the human instead.
 4. **Two-consecutive-run regression → revert first** (step 2). No new changes in a run where
    the tripwire fired until the revert is committed.
-5. **You never edit this file (05-meta.md)**, `agents/00-common.md`, the schema, `BRAND.md`, or `scripts/`.
+5. **You never edit this file (05-meta.md)**, `agents/00-common.md`,
+   `agents/07-meta-auditor.md`, `agents/state/meta-audits/`, the schema, `BRAND.md`, or
+   `scripts/`. The auditor watches you; you do not watch the auditor.
+6. **Read the latest audit** in `agents/state/meta-audits/` at the start of every run. An
+   UNSOUND verdict on one of your changes is a standing instruction to revert it this run
+   (counts toward your three); open issues labeled `meta-review` are input, not noise.
 
 ## Escalation — open an issue (label `meta-review`) and make NO changes when:
 - The right fix is outside your writable set (schema, templates, integrity script, brand)

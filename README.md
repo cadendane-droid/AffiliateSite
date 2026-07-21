@@ -80,6 +80,7 @@ order). Raw cron equivalent:
 0 11 * * *    cd /path/to/repo && claude -p "$(cat agents/03-publisher.md)"
 0 13 * * *    cd /path/to/repo && claude -p "$(cat agents/04-seo.md)"
 0 7  * * 0    cd /path/to/repo && claude -p "$(cat agents/06-ai-search.md)"
+0 12 * * 6    cd /path/to/repo && claude -p "$(cat agents/07-meta-auditor.md)"
 ```
 
 Never run two agents concurrently — they share git state. Claude Code's scheduled-agent
