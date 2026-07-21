@@ -4,7 +4,8 @@
     "avantlink": { "name": "AvantLink", "network": "AvantLink", "status": "PENDING_SIGNUP", "signupUrl": "https://www.avantlink.com/affiliates/" },
     "rei": { "name": "REI Co-op Affiliate Program", "network": "AvantLink", "status": "PENDING_SIGNUP", "signupUrl": "https://www.rei.com/help/affiliate-program.html" },
     "amazon": { "name": "Amazon Associates", "network": "Amazon", "status": "PENDING_SIGNUP", "signupUrl": "https://affiliate-program.amazon.com/" },
-    "garage-grown-gear": { "name": "Garage Grown Gear", "network": "ShareASale", "status": "PENDING_SIGNUP", "signupUrl": "https://www.shareasale.com/" }
+    "garage-grown-gear": { "name": "Garage Grown Gear", "network": "AvantLink", "status": "PENDING_SIGNUP", "signupUrl": "https://www.garagegrowngear.com/pages/affiliate-program" },
+    "backcountry": { "name": "Backcountry.com", "network": "AvantLink (also on Impact)", "status": "PENDING_SIGNUP", "signupUrl": "https://www.backcountry.com/sc/affiliate-program" }
   },
   "links": {
     "durston-x-mid-2": {
