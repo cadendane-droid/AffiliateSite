@@ -6,8 +6,9 @@ import tailwindcss from '@tailwindcss/vite';
 
 // GitHub Pages project-site defaults. Override with SITE_URL / BASE_PATH env
 // vars once a custom domain (ounceledger.com) is pointed at the site.
-const SITE = process.env.SITE_URL ?? 'https://cadendane-droid.github.io';
-const BASE = process.env.BASE_PATH ?? '/AffiliateSite';
+// `||` (not `??`): CI passes unset repo variables through as empty strings.
+const SITE = process.env.SITE_URL || 'https://cadendane-droid.github.io';
+const BASE = process.env.BASE_PATH || '/AffiliateSite';
 const basePrefix = BASE.replace(/\/$/, '');
 
 /**
