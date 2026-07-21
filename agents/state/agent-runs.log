@@ -1,1 +1,2 @@
 2026-07-21T00:00:00Z | seed | seed-2026-07-21 | SUCCESS | Initial scaffold: 3 roundups + 2 guides published, registry seeded with 9 links (all PENDING_AFFILIATE_ID)
+2026-07-21T19:19:56Z | 06-ai-search | 2026-07-21-aisearch | SUCCESS | ai-referrals-7d: 0 | citations: 0/4 | changes: 1 | drift: no dedicated 'HeavyHiker · AI Search' PostHog dashboard found — measured via direct event query on article_view/$pageview referrers instead; deps not pre-installed (ran npm ci)

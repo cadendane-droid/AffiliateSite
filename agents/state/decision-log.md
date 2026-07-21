@@ -30,3 +30,9 @@ protocol violation and gets reverted.
 - **Why:** og:image scraping returned brand logos and a wrong product (X-Mid Pro 1 on the X-Mid 2 page) — unverified images would put wrong products next to verified specs.
 - **Desired result:** Zero wrong-product images ever published; image coverage → 100% as programs approve. Review at first datafeed access.
 - **Review:** pending
+
+## 2026-07-21 · 06-ai-search · 2026-07-21-aisearch · D-003
+- **Decision:** Rewrote the first paragraph of `best-ultralight-trekking-pole-tents.mdx` to lead with a single, quotable, fully-entity-named verdict sentence (Durston X-Mid 2 = top pick, Zpacks Duplex = lightest at 18.5 oz, 3F UL Gear Lanshan 2 = budget) before the "biggest weight cut" context — an answer-first summary passage an assistant can lift verbatim. No new specs (18.5 oz and all awards already in-article/frontmatter); no products, prices, or disclosure changed.
+- **Why:** Baseline run — 0 AI-assistant referrals (PostHog 7d: only github.com/$direct/google) and 0/4 citation spot-checks surfaced HeavyHiker for the standing queries; competitors cited (The Trek, Treeline Review, CleverHiker, OutdoorGearLab) all open with a direct named recommendation. Our intro led with a general claim, burying the verdict in the layout's verdict box. Answer-first quotable phrasing is the core AEO lever (learnings L-001, L-004). Flagship, highest-competition category chosen as the single-variable test; no active experiment on this article (experiment-log active: []).
+- **Desired result:** For the standing query "best trekking pole tent for a thru-hike," HeavyHiker begins to surface in citation spot-checks and/or the tent page starts logging assistant-domain referral pageviews. Baseline both = 0 as of 2026-07-21. Review by 2026-09-06 (7 weekly runs); if still 0 and the pattern holds across articles, escalate as structural (indexing/hosting) per the 4-run-flat rule.
+- **Review:** pending
