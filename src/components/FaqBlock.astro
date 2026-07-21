@@ -6,7 +6,7 @@ const { faqs } = Astro.props;
 ---
 
 {faqs.length > 0 && (
-  <section class="not-prose my-8" aria-label="Frequently asked questions">
+  <section id="faq" class="not-prose my-8" aria-label="Frequently asked questions">
     <h2 class="text-xl font-bold border-t border-rule pt-4">Frequently asked questions</h2>
     <div class="mt-3 divide-y divide-rule rounded-sm border border-rule">
       {faqs.map((f) => (

@@ -1,6 +1,6 @@
 {
-  "name": "ounce-ledger",
-  "description": "Ounce Ledger — backpacking gear, weighed and verified. Research-synthesis reviews for thru-hikers and multi-day backpackers.",
+  "name": "heavyhiker",
+  "description": "HeavyHiker — backpacking gear, weighed and verified. Research-synthesis reviews for thru-hikers and multi-day backpackers.",
   "type": "module",
   "version": "0.1.0",
   "private": true,

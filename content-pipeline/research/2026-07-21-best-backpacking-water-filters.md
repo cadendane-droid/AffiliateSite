@@ -65,3 +65,10 @@
 
 No first-hand testing or field use. Flow/durability claims attributed to owner-review patterns
 and published third-party testing. Sawyer cartridge life deliberately printed as "not published."
+
+## Also considered (excluded, with reasons — feeds the article's "competition" block)
+
+| Product | Exclusion reason | Basis |
+|---|---|---|
+| MSR Guardian | ~17 oz, premium band, virus rating unneeded for target use | msrgear.com spec page — VERIFY |
+| LifeStraw Peak Series Squeeze | no differentiating advantage vs the three picks | lifestraw.com specs + owner-review patterns |

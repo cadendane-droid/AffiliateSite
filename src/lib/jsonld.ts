@@ -1,5 +1,7 @@
 import type { CollectionEntry } from 'astro:content';
 import { SITE_NAME } from '@data/site';
+import { getProductImage } from '@lib/affiliates';
+import { url } from '@lib/url';
 
 type Article = CollectionEntry<'articles'>['data'];
 
@@ -9,7 +11,8 @@ const PRICE_BAND_TEXT: Record<string, string> = {
   $$$: 'premium',
 };
 
-function productLd(p: Article['products'][number]) {
+function productLd(p: Article['products'][number], canonicalUrl?: string) {
+  const image = getProductImage(p.affiliateUrl);
   return {
     '@type': 'Product',
     name: p.name,
@@ -17,6 +20,7 @@ function productLd(p: Article['products'][number]) {
     ...(p.weightOz !== null
       ? { weight: { '@type': 'QuantitativeValue', value: p.weightOz, unitCode: 'ONZ' } }
       : {}),
+    ...(image && canonicalUrl ? { image: new URL(url(image.src), canonicalUrl).toString() } : {}),
     description: `${p.bestFor} (${PRICE_BAND_TEXT[p.priceBand]} price band)`,
   };
 }
@@ -47,12 +51,12 @@ export function articleJsonLd(data: Article, canonicalUrl: string): Record<strin
       itemListElement: data.products.map((p, i) => ({
         '@type': 'ListItem',
         position: i + 1,
-        item: productLd(p),
+        item: productLd(p, canonicalUrl),
       })),
     });
   } else if (data.schemaType === 'Product' && data.products.length > 0) {
     blocks.push({ ...base, '@type': 'Article' });
-    blocks.push({ '@context': 'https://schema.org', ...productLd(data.products[0]!) });
+    blocks.push({ '@context': 'https://schema.org', ...productLd(data.products[0]!, canonicalUrl) });
   } else {
     blocks.push({ ...base, '@type': 'Article' });
   }

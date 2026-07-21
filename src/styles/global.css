@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  /* Ledger palette */
-  --color-paper: #faf7f2;
-  --color-paper-dark: #f1ece3;
-  --color-ink: #1f1b16;
-  --color-ink-soft: #575046;
-  --color-rule: #d9d2c5;
-  --color-rust: #b4441c;
-  --color-rust-dark: #93350f;
-  --color-pine: #34503b;
-  --color-pine-light: #e8efe9;
-  --color-amber-note: #f6ead2;
+  /* Trail palette: fog, spruce, moss, campfire */
+  --color-paper: #f6f5ee;
+  --color-paper-dark: #eae8da;
+  --color-ink: #222a20;
+  --color-ink-soft: #566052;
+  --color-rule: #d3d4c0;
+  --color-rust: #bc5b28;
+  --color-rust-dark: #98431a;
+  --color-pine: #2c5237;
+  --color-pine-light: #e2ecdd;
+  --color-amber-note: #f2ecd4;
 
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
@@ -78,6 +78,12 @@ table {
   border-bottom: 1px solid var(--color-rule);
   padding: 0.5em 0.75em;
   text-align: left;
+}
+
+/* Topographic contour texture for hero/section backgrounds (inline SVG, zero requests) */
+.topo-bg {
+  background-color: var(--color-paper-dark);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='480' viewBox='0 0 480 480'%3E%3Cg fill='none' stroke='%232c5237' stroke-opacity='0.10' stroke-width='1.5'%3E%3Cpath d='M60 240c0-90 70-160 180-160s180 70 180 160-70 160-180 160S60 330 60 240z'/%3E%3Cpath d='M100 240c0-70 55-125 140-125s140 55 140 125-55 125-140 125-140-55-140-125z'/%3E%3Cpath d='M140 240c0-50 40-90 100-90s100 40 100 90-40 90-100 90-100-40-100-90z'/%3E%3Cpath d='M180 240c0-30 25-55 60-55s60 25 60 55-25 55-60 55-60-25-60-55z'/%3E%3Cpath d='M-40 40c60-30 140-20 200 20s160 50 240 10 120-30 160 0'/%3E%3Cpath d='M-40 80c60-30 130-15 190 25s170 45 250 5 110-25 160 5'/%3E%3Cpath d='M-40 440c70-25 150-15 210 15s150 35 230 5 100-20 160 5'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 /* Sortable comparison tables */

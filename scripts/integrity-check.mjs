@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Ounce Ledger integrity check — runs before every build (npm run build) and in CI.
+ * HeavyHiker integrity check — runs before every build (npm run build) and in CI.
  * The build FAILS if any rule below is violated. Agents: these rules are
  * non-negotiable and may never be weakened (see agents/05-meta.md hard limits).
  *

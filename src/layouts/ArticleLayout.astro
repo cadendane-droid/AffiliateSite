@@ -11,6 +11,8 @@ import Breadcrumbs from '@components/Breadcrumbs.astro';
 import AffiliateDisclosure from '@components/AffiliateDisclosure.astro';
 import VerdictBox from '@components/VerdictBox.astro';
 import ComparisonTable from '@components/ComparisonTable.astro';
+import JumpNav from '@components/JumpNav.astro';
+import AlsoConsidered from '@components/AlsoConsidered.astro';
 import FaqBlock from '@components/FaqBlock.astro';
 import RelatedArticles from '@components/RelatedArticles.astro';
 import JsonLd from '@components/JsonLd.astro';
@@ -71,9 +73,20 @@ const fmt = (date: Date) => date.toLocaleDateString('en-US', { year: 'numeric', 
     )}
 
     {d.contentType === 'roundup' && (
+      <div class="mt-6">
+        <JumpNav
+          productNames={d.products.map((p) => p.name)}
+          hasVerdict={true}
+          hasCompetition={d.alsoConsidered.length > 0}
+          hasFaq={d.faqs.length > 0}
+        />
+      </div>
+    )}
+
+    {d.contentType === 'roundup' && d.verdictPosition === 'top' && (
       <div class="mt-6 space-y-8">
-        <VerdictBox products={d.products} />
-        <section aria-label="Specification comparison">
+        <div id="verdict"><VerdictBox products={d.products} /></div>
+        <section id="comparison" aria-label="Specification comparison">
           <h2 class="mb-2 text-sm font-bold uppercase tracking-widest text-ink-soft">Spec comparison — click a column to sort</h2>
           <ComparisonTable products={d.products} keySpecLabel={keySpecLabel ?? 'Key spec'} tableId={d.slug} />
         </section>
@@ -84,6 +97,17 @@ const fmt = (date: Date) => date.toLocaleDateString('en-US', { year: 'numeric', 
       <slot />
     </div>
 
+    {d.contentType === 'roundup' && d.verdictPosition === 'bottom' && (
+      <div class="mt-8 space-y-8">
+        <div id="verdict"><VerdictBox products={d.products} /></div>
+        <section id="comparison" aria-label="Specification comparison">
+          <h2 class="mb-2 text-sm font-bold uppercase tracking-widest text-ink-soft">Spec comparison — click a column to sort</h2>
+          <ComparisonTable products={d.products} keySpecLabel={keySpecLabel ?? 'Key spec'} tableId={d.slug} />
+        </section>
+      </div>
+    )}
+
+    <AlsoConsidered items={d.alsoConsidered} />
     <FaqBlock faqs={d.faqs} />
     <RelatedArticles paths={d.internalLinks} currentSlug={d.slug} />
   </article>

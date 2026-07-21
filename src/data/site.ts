@@ -1,5 +1,5 @@
-export const SITE_NAME = 'Ounce Ledger';
-export const SITE_TAGLINE = 'Backpacking gear, weighed and verified.';
+export const SITE_NAME = 'HeavyHiker';
+export const SITE_TAGLINE = 'Stop hiking heavy. Gear weighed, verified, and worth its place in your pack.';
 export const SITE_PROMISE =
   'Every piece of backpacking gear here is evaluated by the numbers — verified weight, packed size, and durability evidence — so you can build a lighter pack without gambling on marketing copy.';
 

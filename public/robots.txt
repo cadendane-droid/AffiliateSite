@@ -1,4 +1,35 @@
+# HeavyHiker — all crawlers welcome, including AI assistants.
+# Machine-readable site guide: /AffiliateSite/llms.txt
+
 User-agent: *
+Allow: /
+
+# AI crawlers, explicitly welcomed (accurate citation is the goal)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
 Allow: /
 
 Sitemap: https://cadendane-droid.github.io/AffiliateSite/sitemap-index.xml

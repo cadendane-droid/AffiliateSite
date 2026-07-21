@@ -3,7 +3,8 @@
  * Per-product section in a roundup: specs line, pros/cons, CTA.
  */
 import AffiliateLink from '@components/AffiliateLink.astro';
-import { formatWeight } from '@lib/url';
+import { formatWeight, url } from '@lib/url';
+import { getProductImage } from '@lib/affiliates';
 
 interface ProductLike {
   name: string;
@@ -24,6 +25,7 @@ interface Props {
 }
 
 const { product: p, index } = Astro.props;
+const image = getProductImage(p.affiliateUrl);
 const AWARD_LABELS: Record<string, string> = {
   'top-pick': 'Top pick',
   'budget-pick': 'Budget pick',
@@ -49,6 +51,24 @@ const AWARD_LABELS: Record<string, string> = {
     <AffiliateLink linkKey={p.affiliateUrl} position={`product-section-${index + 1}`} ctaVariant="check-price" />
   </header>
   <div class="px-4 py-4 space-y-4">
+    {image ? (
+      <figure class="flex flex-col items-center rounded-sm bg-white p-3">
+        <img
+          src={url(image.src)}
+          alt={image.alt}
+          loading="lazy"
+          decoding="async"
+          class="max-h-56 w-auto max-w-full object-contain"
+        />
+        <figcaption class="mt-1.5 font-mono text-[11px] text-ink-soft">
+          {image.credit} · <a href={image.sourceUrl} rel="nofollow noopener" target="_blank" class="underline underline-offset-2 hover:text-rust">source</a>
+        </figcaption>
+      </figure>
+    ) : (
+      <p class="rounded-sm border border-dashed border-rule bg-paper-dark/50 px-3 py-2 font-mono text-[11px] text-ink-soft">
+        Product photo pending — we only publish verified manufacturer or affiliate-program imagery, never stock look-alikes.
+      </p>
+    )}
     <dl class="grid gap-x-6 gap-y-1 sm:grid-cols-2 text-sm">
       {Object.entries(p.keySpecs).map(([k, v]) => (
         <div class="flex justify-between gap-4 border-b border-dotted border-rule py-1">

@@ -63,3 +63,10 @@
 
 No first-hand testing, carrying, or field use. All durability statements are attributed to owner
 review patterns or published surveys. No fabricated quotes; no review counts stated.
+
+## Also considered (excluded, with reasons — feeds the article's "competition" block)
+
+| Product | Exclusion reason | Basis |
+|---|---|---|
+| Gossamer Gear The Two | heavier than Duplex at near-Duplex price band | manufacturer spec pages (gossamergear.com) — VERIFY |
+| Tarptent Double Rainbow | arch-pole design, not trekking-pole-structural | manufacturer product page (tarptent.com) |

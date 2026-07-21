@@ -61,6 +61,18 @@ const articles = defineCollection({
     researchDoc: z.string().optional(),
     /** Which keySpecs key to surface as the comparison table's "key spec" column. */
     keySpecLabel: z.string().optional(),
+    /**
+     * "The competition": products evaluated but cut, with the honest reason.
+     * A standard trust block on high-performing affiliate roundups.
+     */
+    alsoConsidered: z
+      .array(z.object({ name: z.string(), brand: z.string(), reason: z.string() }))
+      .default([]),
+    /**
+     * Layout A/B lever for 04-seo: where the verdict box + comparison table render.
+     * 'top' (default, proven pattern) or 'bottom' (before the FAQ).
+     */
+    verdictPosition: z.enum(['top', 'bottom']).default('top'),
     draft: z.boolean().default(false),
   }).superRefine((data, ctx) => {
     if (data.contentType !== 'guide' && data.products.length < 1) {

@@ -1,11 +1,20 @@
 import registry from '@data/affiliate-links.json';
 
+export interface ProductImage {
+  src: string;
+  alt: string;
+  sourceUrl: string;
+  credit: string;
+}
+
 export interface AffiliateEntry {
   name: string;
   brand: string;
   program: string;
   url: string;
   fallbackUrl: string;
+  /** Verified product image; absent = render "image pending", never a substitute photo. */
+  image?: ProductImage;
 }
 
 const links = registry.links as Record<string, AffiliateEntry>;
@@ -26,4 +35,9 @@ export function resolveAffiliate(key: string): { entry: AffiliateEntry; href: st
 
 export function hasAffiliateLinks(products: unknown[] | undefined): boolean {
   return Array.isArray(products) && products.length > 0;
+}
+
+/** Product image from the registry, or null (render "image pending" honestly). */
+export function getProductImage(key: string): ProductImage | null {
+  return links[key]?.image ?? null;
 }

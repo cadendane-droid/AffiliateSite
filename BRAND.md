@@ -1,7 +1,7 @@
-# Ounce Ledger — Brand Definition
+# HeavyHiker — Brand Definition
 
-**Name:** Ounce Ledger
-**Domain:** ounceledger.com (GitHub Pages URL until DNS is configured)
+**Name:** HeavyHiker
+**Domain:** heavyhiker.com (GitHub Pages URL until DNS is configured)
 **Tagline:** Backpacking gear, weighed and verified.
 
 ## One-sentence promise
@@ -10,7 +10,7 @@ Every piece of backpacking gear on this site is evaluated by the numbers — ver
 
 ## What we cover — and what we never cover
 
-Ounce Ledger is **exclusively about backpacking gear**: gear you carry on your back, on foot, into the backcountry. Weight, packability, and trail durability are the lens for every evaluation.
+HeavyHiker is **exclusively about backpacking gear**: gear you carry on your back, on foot, into the backcountry. Weight, packability, and trail durability are the lens for every evaluation.
 
 Out of scope, permanently: car camping, overlanding, RV gear, tailgating, general "outdoor lifestyle" products, home goods with an outdoor theme. If it only makes sense within 100 feet of a vehicle, it does not belong here.
 

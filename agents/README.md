@@ -34,6 +34,7 @@ and exits cleanly — an empty day is a valid day.
 0 10 * * *    claude -p "$(cat agents/02-writer.md)"
 0 11 * * *    claude -p "$(cat agents/03-publisher.md)"
 0 13 * * *    claude -p "$(cat agents/04-seo.md)"
+0 7  * * 0    claude -p "$(cat agents/06-ai-search.md)" # weekly, Sundays, before everything
 ```
 
 The 1–2 h gaps are deliberate slack so a slow run can't overlap its successor. Do not run two
@@ -57,9 +58,31 @@ agents concurrently — they share git state.
 | `agents/state/instruction-changelog.md` | — | — | — | — | **write** |
 | `agents/state/metrics-snapshots/` | — | — | — | **write** | read |
 | `agents/state/agent-runs.log` | append | append | append | append | append |
+| `agents/state/decision-log.md` | append | append | append | append + review | append |
+| `agents/state/learnings.md` | read | read | read | **write** | append |
 | push to `main` | — | — | **yes** | yes (green only) | yes |
 
+**06-ai-search** (weekly): reads everything; writes `robots.txt` (AI directives), article edits
+(answer-phrasing/FAQ only), decision-log, learnings, runs log; pushes on green. 05-meta may edit
+its instruction file. `/llms.txt` regenerates from the collection automatically.
+
 "—" = must never touch. Everything not listed: read-only for everyone, writable by humans.
+
+## The learning loop (how the system self-improves)
+
+Every consequential choice follows the same cycle, whichever agent makes it:
+
+1. **Decide** — pre-register in `state/decision-log.md`: the change, the evidence, the desired
+   measurable result, a review date. (Experiments additionally go in `experiment-log.json`.)
+2. **Measure** — 04-seo snapshots metrics daily; 06-ai-search measures AI-referral weekly.
+3. **Review** — at the review date, the outcome is written back into the decision entry.
+4. **Generalize** — findings that hold become `learnings.md` entries; learnings feed
+   `seo-directives.md`; directives bind the writer. External best-practice research enters as
+   `Status: testing` learnings and must win an experiment before becoming a directive.
+5. **Restructure** — 05-meta reads the whole trail and edits agent instructions when the
+   pattern is systemic.
+
+An undocumented bot change to the site is a protocol violation: revert it and file an issue.
 
 ## Escalation rules — stop and open an issue, don't improvise
 

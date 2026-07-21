@@ -64,3 +64,10 @@
 No first-hand testing. No boil-time figures printed (lab-condition numbers, deliberately
 excluded with reasoning stated in the article). Wind and durability claims attributed to
 published third-party testing and owner-review patterns.
+
+## Also considered (excluded, with reasons — feeds the article's "competition" block)
+
+| Product | Exclusion reason | Basis |
+|---|---|---|
+| MSR PocketRocket 2 | 2.6 oz — out-positioned on every axis by the three picks | msrgear.com spec page — VERIFY |
+| Jetboil Flash | integrated-pot system, outside bring-your-own-pot criteria | jetboil.johnsonoutdoors.com product page |

@@ -1,5 +1,5 @@
 {
-  "$comment": "Central affiliate link registry. Every monetized outbound link on the site resolves through this file via <AffiliateLink>. `url` is the monetized affiliate deep link; while a program application is pending, set it to PENDING_AFFILIATE_ID and fill `fallbackUrl` with the plain product page — the component will use the fallback (still rel=sponsored) until the real link lands. Agents may append entries but must never delete one that a published article references.",
+  "$comment": "Central affiliate link registry. Every monetized outbound link on the site resolves through this file via <AffiliateLink>. `url` is the monetized affiliate deep link; while a program application is pending, set it to PENDING_AFFILIATE_ID and fill `fallbackUrl` with the plain product page — the component will use the fallback (still rel=sponsored) until the real link lands. `image` is optional: {src (local path under /images/products/), alt, sourceUrl, credit}. Images must be VISUALLY VERIFIED as the correct product before adding (og:image scraping returns logos and wrong products), and preferably come from affiliate-program datafeeds once approved. Products without an image render an honest 'image pending' placeholder — never a wrong or generic photo. Agents may append entries but must never delete one that a published article references.",
   "programs": {
     "avantlink": { "name": "AvantLink", "network": "AvantLink", "status": "PENDING_SIGNUP", "signupUrl": "https://www.avantlink.com/affiliates/" },
     "rei": { "name": "REI Co-op Affiliate Program", "network": "AvantLink", "status": "PENDING_SIGNUP", "signupUrl": "https://www.rei.com/help/affiliate-program.html" },
@@ -33,7 +33,13 @@
       "brand": "Sawyer",
       "program": "amazon",
       "url": "PENDING_AFFILIATE_ID",
-      "fallbackUrl": "https://sawyer.com/products/squeeze-water-filtration-system"
+      "fallbackUrl": "https://sawyer.com/products/squeeze-water-filtration-system",
+      "image": {
+        "src": "/images/products/sawyer-squeeze.png",
+        "alt": "Sawyer Squeeze water filter, manufacturer product photo",
+        "sourceUrl": "https://sawyer.com/products/squeeze-water-filtration-system",
+        "credit": "Photo: Sawyer"
+      }
     },
     "katadyn-befree-1l": {
       "name": "Katadyn BeFree 1.0L",
@@ -54,7 +60,13 @@
       "brand": "Soto",
       "program": "rei",
       "url": "PENDING_AFFILIATE_ID",
-      "fallbackUrl": "https://sotooutdoors.com/products/windmaster/"
+      "fallbackUrl": "https://sotooutdoors.com/products/windmaster/",
+      "image": {
+        "src": "/images/products/soto-windmaster.jpg",
+        "alt": "Soto WindMaster stove with 4Flex pot support on a fuel canister, manufacturer product photo",
+        "sourceUrl": "https://sotooutdoors.com/products/windmaster/",
+        "credit": "Photo: Soto Outdoors"
+      }
     },
     "brs-3000t": {
       "name": "BRS-3000T",
