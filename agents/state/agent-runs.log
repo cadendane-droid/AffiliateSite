@@ -1,1 +1,2 @@
 2026-07-21T00:00:00Z | seed | seed-2026-07-21 | SUCCESS | Initial scaffold: 3 roundups + 2 guides published, registry seeded with 9 links (all PENDING_AFFILIATE_ID)
+2026-07-21T18:28:57Z | 03-publisher | 2026-07-21-publisher | BLOCKED | no draft in content-pipeline/drafts/ (02-writer has not produced a draft) | commit: — | build: n/a | drift: none
