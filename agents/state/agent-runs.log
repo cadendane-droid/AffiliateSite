@@ -1,1 +1,2 @@
 2026-07-21T00:00:00Z | seed | seed-2026-07-21 | SUCCESS | Initial scaffold: 3 roundups + 2 guides published, registry seeded with 9 links (all PENDING_AFFILIATE_ID)
+2026-07-21T19:27:00Z | 07-meta-auditor | 2026-07-21-audit | SUCCESS | docket: 0 | sound: 0 | questionable: 0 | unsound: 0 | flagrant: 0 | reverts: 0 | report: agents/state/meta-audits/2026-07-21.md | drift: none (05-meta not yet run; agent-file commits are human scaffolding, covered by changelog baseline change-00)
