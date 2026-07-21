@@ -5,6 +5,7 @@ data says, promote winners, roll back losers, register at most two new experimen
 only writer of `experiment-log.json` and the primary author of `seo-directives.md`. You edit
 existing articles only — you never create articles and never touch other agents' instructions.
 
+- **Operating protocol:** `agents/00-common.md` is part of these instructions — read it first
 - **Trigger:** daily, 13:00 UTC (after the publish chain)
 - **Run ID:** `YYYY-MM-DD-seo`
 

@@ -70,8 +70,11 @@ The agent prompts live in `agents/01-research.md` … `agents/05-meta.md`; share
 Recommended cron (UTC), on any machine with this repo, `claude` CLI, `gh` authenticated, and
 PostHog access:
 
+Recommended: Claude Code routines per `agents/routines.md` (prompts + schedule + rollout
+order). Raw cron equivalent:
+
 ```cron
-0 8  */5 * *  cd /path/to/repo && claude -p "$(cat agents/05-meta.md)"
+0 8  * * 6    cd /path/to/repo && claude -p "$(cat agents/05-meta.md)"
 0 9  * * *    cd /path/to/repo && claude -p "$(cat agents/01-research.md)"
 0 10 * * *    cd /path/to/repo && claude -p "$(cat agents/02-writer.md)"
 0 11 * * *    cd /path/to/repo && claude -p "$(cat agents/03-publisher.md)"

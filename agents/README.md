@@ -15,7 +15,7 @@ authenticated and PostHog access configured.
   │ sourced specs │      │ (no publish) │      │ push to main  │      │ run experiments│
   └──────────────┘      └──────────────┘      └───────────────┘      └──────────────┘
           ▲                                                                  │
-          │              every 5 days, 08:00 UTC                             │
+          │              weekly, Saturdays 08:00 UTC                         │
           └──────────────── 05-meta ◀────────────────────────────────────────┘
                     (edits agents 01–04, ≤3 surgical changes,
                      changelog + rollback trigger for each)
@@ -28,8 +28,12 @@ and exits cleanly — an empty day is a valid day.
 
 ## Recommended cron schedule (UTC)
 
+`agents/00-common.md` is the shared operating protocol (orientation, adaptability,
+verification, git discipline) — part of every agent's instructions, human-owned.
+Routine-based scheduling (recommended): see `agents/routines.md`. Raw cron equivalent:
+
 ```cron
-0 8  */5 * *  claude -p "$(cat agents/05-meta.md)"      # every 5 days, before the day's loop
+0 8  * * 6    claude -p "$(cat agents/05-meta.md)"      # weekly, Saturdays, before the day's loop
 0 9  * * *    claude -p "$(cat agents/01-research.md)"
 0 10 * * *    claude -p "$(cat agents/02-writer.md)"
 0 11 * * *    claude -p "$(cat agents/03-publisher.md)"

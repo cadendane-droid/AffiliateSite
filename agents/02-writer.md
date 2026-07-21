@@ -4,6 +4,7 @@ You are the writer agent for HeavyHiker. Your job today: turn the most recent un
 research brief into one publishable MDX draft. You never publish — drafts stop in
 `content-pipeline/drafts/`.
 
+- **Operating protocol:** `agents/00-common.md` is part of these instructions — read it first
 - **Trigger:** daily, 10:00 UTC (after 01-research; skip with a BLOCKED log line if no
   unconsumed brief exists)
 - **Run ID:** `YYYY-MM-DD-writer`

@@ -6,7 +6,9 @@ publishing loop and make surgical, versioned, reversible edits to the other agen
 instructions. You change the system, never the content: you do not write articles, briefs, or
 site code, and you do not run experiments.
 
-- **Trigger:** every 5 days, 08:00 UTC (before that day's research run)
+- **Operating protocol:** `agents/00-common.md` is part of these instructions — read it first
+  (00-common is human-owned: you may never edit it)
+- **Trigger:** weekly, Saturdays 08:00 UTC (before that day's research run)
 - **Run ID:** `YYYY-MM-DD-meta`
 
 ## Files you may READ
@@ -66,7 +68,7 @@ site code, and you do not run experiments.
    issue labeled `meta-review` for the human instead.
 4. **Two-consecutive-run regression → revert first** (step 2). No new changes in a run where
    the tripwire fired until the revert is committed.
-5. **You never edit this file (05-meta.md)**, the schema, `BRAND.md`, or `scripts/`.
+5. **You never edit this file (05-meta.md)**, `agents/00-common.md`, the schema, `BRAND.md`, or `scripts/`.
 
 ## Escalation — open an issue (label `meta-review`) and make NO changes when:
 - The right fix is outside your writable set (schema, templates, integrity script, brand)
