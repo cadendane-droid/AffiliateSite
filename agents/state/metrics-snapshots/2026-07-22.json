@@ -1,0 +1,48 @@
+{
+  "date": "2026-07-22",
+  "windowDays": 7,
+  "totals": { "article_view": 5, "affiliate_click": 0, "email_signup": 0 },
+  "byArticle": [
+    {
+      "path": "/gear/shelters/best-ultralight-trekking-pole-tents/",
+      "article_view": 2,
+      "affiliate_click": 0,
+      "ctr": 0,
+      "scroll_50_rate": 0,
+      "median_time_on_page_s": 28
+    },
+    {
+      "path": "/gear/water/best-backpacking-water-filters/",
+      "article_view": 1,
+      "affiliate_click": 0,
+      "ctr": 0,
+      "scroll_50_rate": 0,
+      "median_time_on_page_s": 27
+    },
+    {
+      "path": "/gear/cooking/best-canister-stoves-backpacking/",
+      "article_view": 1,
+      "affiliate_click": 0,
+      "ctr": 0,
+      "scroll_50_rate": 0,
+      "median_time_on_page_s": 28
+    },
+    {
+      "path": "/guides/how-to-fit-a-backpack/",
+      "article_view": 1,
+      "affiliate_click": 0,
+      "ctr": 0,
+      "scroll_50_rate": 0,
+      "median_time_on_page_s": 11
+    },
+    {
+      "path": "/guides/sleeping-bag-temperature-ratings-explained/",
+      "article_view": 0,
+      "affiliate_click": 0,
+      "ctr": 0,
+      "scroll_50_rate": 0,
+      "median_time_on_page_s": null
+    }
+  ],
+  "notes": "Day 2 (site seeded 2026-07-21). Volume remains negligible and consistent with QA/dev traffic: 5 article_views total over the 7d window (trekking-pole-tents 2; water-filters, canister-stoves, how-to-fit-a-backpack 1 each; sleeping-bag-ratings 0), 0 affiliate_click, 0 email_signup. All article_view events classified $virt_traffic_type=Regular (no bots). Supporting raw counts over 7d: scroll_depth=57, time_on_page=7. Events affiliate_click, comparison_table_sort, email_signup remain absent from the project taxonomy (never fired) -> recorded as 0. scroll_50_rate=0 for every slug: the only slugs with attributed scroll_depth events are best-ultralight-trekking-pole-tents (2 events, 0 at >=50%) and how-to-fit-a-backpack (4 events, 0 at >=50%); 30 of 57 scroll_depth events reached >=50% but carry no article_slug and cannot be attributed. median_time_on_page_s is each slug's median over its time_on_page samples (1 sample per viewed slug; null where no sample). Every metric is 1-2 orders of magnitude below the L-008 threshold (>=200 article_views/arm) required to baseline or judge any experiment; no experiment can be registered or evaluated honestly yet. No active experiments to evaluate (experiment-log active=[]). 0 new experiments registered this run. Continues the hold established in decision-log D-003; see D-004. PostHog reachable via project id 465974 (org Almura); HeavyHiker events confirmed present in taxonomy."
+}
