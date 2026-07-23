@@ -1,0 +1,48 @@
+{
+  "date": "2026-07-23",
+  "windowDays": 7,
+  "totals": { "article_view": 5, "affiliate_click": 0, "email_signup": 0 },
+  "byArticle": [
+    {
+      "path": "/gear/shelters/best-ultralight-trekking-pole-tents/",
+      "article_view": 2,
+      "affiliate_click": 0,
+      "ctr": 0,
+      "scroll_50_rate": 0,
+      "median_time_on_page_s": 28
+    },
+    {
+      "path": "/gear/water/best-backpacking-water-filters/",
+      "article_view": 1,
+      "affiliate_click": 0,
+      "ctr": 0,
+      "scroll_50_rate": null,
+      "median_time_on_page_s": 27
+    },
+    {
+      "path": "/gear/cooking/best-canister-stoves-backpacking/",
+      "article_view": 1,
+      "affiliate_click": 0,
+      "ctr": 0,
+      "scroll_50_rate": null,
+      "median_time_on_page_s": 28
+    },
+    {
+      "path": "/guides/how-to-fit-a-backpack/",
+      "article_view": 1,
+      "affiliate_click": 0,
+      "ctr": 0,
+      "scroll_50_rate": 0,
+      "median_time_on_page_s": 11
+    },
+    {
+      "path": "/guides/sleeping-bag-temperature-ratings-explained/",
+      "article_view": 0,
+      "affiliate_click": 0,
+      "ctr": 0,
+      "scroll_50_rate": null,
+      "median_time_on_page_s": null
+    }
+  ],
+  "notes": "Day 3 post-launch (site seeded 2026-07-21). Volume still negligible and consistent with QA/dev traffic: 5 article_views total over the 7d window (tents=2, water-filters=1, canister-stoves=1, how-to-fit-a-backpack=1, sleeping-bag=0), 0 affiliate_click, 0 email_signup, all classified $virt_traffic_type=Regular (no bots/AI-agents). Supporting raw event counts over the window: scroll_depth=61, $pageview=42, time_on_page=7. Of scroll_depth, 55/61 carry no article_slug (unattributed; 33 of those reached >=50%); only 6 attributed (tents=2, how-to-fit-a-backpack=4), none reaching >=50% -> scroll_50_rate=0 for those two, null where no attributed scroll_depth exists. median_time_on_page_s computed from the `seconds` property (tents=28 from 1 sample, water-filters=27, canister-stoves=28, how-to-fit-a-backpack=11; each a single sample); null where no time_on_page sample exists for the slug. Events affiliate_click, email_signup, comparison_table_sort remain absent from the project taxonomy (never fired). Every metric is orders of magnitude below the L-008 floor (>=200 article_views/arm) required to baseline any experiment honestly; no experiment registered (standing decision D-003). No active experiments to evaluate. DRIFT: PostHog $pathname now carries the GitHub Pages base prefix '/AffiliateSite/...' (e.g. /AffiliateSite/gear/shelters/best-ultralight-trekking-pole-tents/); byArticle 'path' here is kept site-relative (base stripped) for day-over-day comparability with 2026-07-21.json. DRIFT: '$virt_traffic_type' raised a taxonomy-cache warning but still resolves to real values (all 'Regular') in event data. PostHog reachable via project id 465974 (org Almura); HeavyHiker events confirmed present."
+}
