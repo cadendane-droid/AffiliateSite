@@ -82,6 +82,27 @@
       "program": "rei",
       "url": "PENDING_AFFILIATE_ID",
       "fallbackUrl": "https://www.snowpeak.com/products/litemax-stove-gst-120r"
+    },
+    "black-diamond-spot-400": {
+      "name": "Black Diamond Spot 400",
+      "brand": "Black Diamond",
+      "program": "rei",
+      "url": "PENDING_AFFILIATE_ID",
+      "fallbackUrl": "https://blackdiamondequipment.com/products/spot-400-headlamp"
+    },
+    "nitecore-nu25-ul": {
+      "name": "Nitecore NU25 UL",
+      "brand": "Nitecore",
+      "program": "amazon",
+      "url": "PENDING_AFFILIATE_ID",
+      "fallbackUrl": "https://www.nitecore.com/product/nu25ul"
+    },
+    "petzl-actik-core": {
+      "name": "Petzl Actik Core",
+      "brand": "Petzl",
+      "program": "rei",
+      "url": "PENDING_AFFILIATE_ID",
+      "fallbackUrl": "https://www.petzl.com/US/en/Sport/Headlamps/ACTIK-CORE"
     }
   }
 }
